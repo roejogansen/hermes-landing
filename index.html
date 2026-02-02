@@ -125,7 +125,7 @@
         <div class="min-h-screen lg:h-screen grid grid-cols-12 gap-3 lg:gap-5 lg:items-center pt-6 lg:pt-0">
             
             <!-- Mobile Logo (in-flow, not absolute) -->
-            <div class="lg:hidden col-span-12 flex justify-center pt-1 pb-0">
+            <div class="lg:hidden col-span-12 flex justify-center pt-1 -mb-2">
                 <a href="/">
                     <img src="hfm-logo.svg" alt="Hermes" class="h-8 w-auto">
                 </a>
@@ -181,13 +181,13 @@
                         <source src="hermes_hero.webm" type="video/webm">
                         <source src="hermes_hero.mp4" type="video/mp4">
                     </video>
-                    <!-- Glassmorphism typewriter overlay -->
-                    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
-                                bg-white/70 backdrop-blur-md rounded-full px-6 py-3
-                                shadow-lg text-center">
-                        <p class="subheading-text text-hermes-charcoal whitespace-nowrap text-center">
-                            <span id="typewriter-mobile"></span><span class="typewriter-cursor">|</span>
-                        </p>
+                    <!-- Glassmorphism typewriter overlay - flex centered -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="bg-white/70 backdrop-blur-md rounded-full px-6 py-3 shadow-lg">
+                            <p class="subheading-text text-hermes-charcoal whitespace-nowrap text-center">
+                                <span id="typewriter-mobile"></span><span class="typewriter-cursor">|</span>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -195,7 +195,7 @@
             <!-- Mobile: CTA Button -->
             <div class="lg:hidden col-span-12 flex justify-center pt-3 pb-6">
                 <a href="https://t.me/hermesformasses_bot?start=web_landing" 
-                   class="inline-block bg-black text-white button-text px-16 py-3 rounded-full text-center transition-all duration-200 hover:bg-hermes-charcoal hover:shadow-lg">
+                   class="inline-block bg-black text-white button-text px-10 py-3 rounded-full text-center transition-all duration-200 hover:bg-hermes-charcoal hover:shadow-lg">
                     Try it free now
                 </a>
             </div>
