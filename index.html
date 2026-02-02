@@ -125,7 +125,7 @@
         <div class="min-h-screen lg:h-screen grid grid-cols-12 gap-3 lg:gap-5 lg:items-center pt-6 lg:pt-0">
             
             <!-- Mobile Logo (in-flow, not absolute) -->
-            <div class="lg:hidden col-span-12 flex justify-center pt-1 pb-1">
+            <div class="lg:hidden col-span-12 flex justify-center pt-1 pb-0">
                 <a href="/">
                     <img src="hfm-logo.svg" alt="Hermes" class="h-8 w-auto">
                 </a>
@@ -165,7 +165,7 @@
             
             <!-- Mobile Layout: Headline only -->
             <div class="lg:hidden col-span-12 text-center px-4">
-                <h1 class="hero-text text-hermes-charcoal mb-2">
+                <h1 class="hero-text text-hermes-charcoal mb-1">
                     AI that<br>
                     remembers &<br>
                     actually does<br>
@@ -174,7 +174,7 @@
             </div>
             
             <!-- Mobile: Video with typewriter overlay -->
-            <div class="lg:hidden col-span-12 flex justify-center px-6">
+            <div class="lg:hidden col-span-12 flex justify-center px-6 -mt-1">
                 <div class="relative w-full max-w-xs">
                     <video autoplay loop muted playsinline poster="hermes_hero_poster.jpg"
                          class="w-full object-cover rounded-[40px]">
@@ -184,8 +184,8 @@
                     <!-- Glassmorphism typewriter overlay -->
                     <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
                                 bg-white/70 backdrop-blur-md rounded-full px-6 py-3
-                                shadow-lg">
-                        <p class="subheading-text text-hermes-charcoal whitespace-nowrap">
+                                shadow-lg text-center">
+                        <p class="subheading-text text-hermes-charcoal whitespace-nowrap text-center">
                             <span id="typewriter-mobile"></span><span class="typewriter-cursor">|</span>
                         </p>
                     </div>
@@ -193,9 +193,9 @@
             </div>
             
             <!-- Mobile: CTA Button -->
-            <div class="lg:hidden col-span-12 flex justify-center pt-4 pb-6">
+            <div class="lg:hidden col-span-12 flex justify-center pt-3 pb-6">
                 <a href="https://t.me/hermesformasses_bot?start=web_landing" 
-                   class="inline-block bg-black text-white button-text px-8 py-3 rounded-full transition-all duration-200 hover:bg-hermes-charcoal hover:shadow-lg">
+                   class="inline-block bg-black text-white button-text px-16 py-3 rounded-full text-center transition-all duration-200 hover:bg-hermes-charcoal hover:shadow-lg">
                     Try it free now
                 </a>
             </div>
