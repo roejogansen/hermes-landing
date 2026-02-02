@@ -73,6 +73,24 @@
             51%, 100% { opacity: 0; }
         }
         
+        /* Chat bubble with tail */
+        .chat-bubble {
+            position: relative;
+        }
+        .chat-bubble::before {
+            content: '';
+            position: absolute;
+            left: 16px;
+            bottom: -8px;
+            width: 16px;
+            height: 16px;
+            background: inherit;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 0 0 0 8px;
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+        }
+        
         .button-text {
             font-family: 'Kantumruy', sans-serif;
             font-weight: 700;
@@ -125,9 +143,9 @@
         <div class="min-h-screen lg:h-screen grid grid-cols-12 gap-5 lg:items-center pt-10 lg:pt-0">
             
             <!-- Mobile Logo (in-flow, not absolute) -->
-            <div class="lg:hidden col-span-12 flex justify-center pt-2 pb-6">
+            <div class="lg:hidden col-span-12 flex justify-center pt-2 pb-3">
                 <a href="/">
-                    <img src="hfm-logo.svg" alt="Hermes" class="h-10 w-auto">
+                    <img src="hfm-logo.svg" alt="Hermes" class="h-8 w-auto">
                 </a>
             </div>
             
@@ -165,7 +183,7 @@
             
             <!-- Mobile Layout: Headline only -->
             <div class="lg:hidden col-span-12 text-center px-4">
-                <h1 class="hero-text text-hermes-charcoal mb-6">
+                <h1 class="hero-text text-hermes-charcoal mb-3">
                     AI that<br>
                     remembers &<br>
                     actually does<br>
@@ -181,10 +199,10 @@
                         <source src="hermes_hero.webm" type="video/webm">
                         <source src="hermes_hero.mp4" type="video/mp4">
                     </video>
-                    <!-- Glassmorphism typewriter overlay -->
+                    <!-- Chat bubble typewriter overlay -->
                     <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
-                                bg-white/70 backdrop-blur-md rounded-full px-6 py-3
-                                shadow-lg">
+                                bg-white/80 backdrop-blur-md rounded-2xl px-5 py-2.5
+                                shadow-lg chat-bubble">
                         <p class="subheading-text text-hermes-charcoal whitespace-nowrap">
                             <span id="typewriter-mobile"></span><span class="typewriter-cursor">|</span>
                         </p>
