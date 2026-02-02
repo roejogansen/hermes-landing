@@ -47,16 +47,16 @@
         .hero-text {
             font-family: 'Roboto Mono', monospace;
             font-weight: 500;
-            font-size: 52px;
-            line-height: 1.1;
+            font-size: 60px;
+            line-height: 1;
             letter-spacing: -0.05em;
         }
         .subheading-text {
             font-family: 'Kantumruy', sans-serif;
             font-weight: 400;
-            font-size: 22px;
-            line-height: 32px;
-            letter-spacing: -0.03em;
+            font-size: 24px;
+            line-height: 30px;
+            letter-spacing: -0.05em;
         }
         .typewriter-cursor {
             animation: blink 1s infinite;
@@ -66,182 +66,164 @@
             0%, 50% { opacity: 1; }
             51%, 100% { opacity: 0; }
         }
+        @media (max-width: 1024px) {
+            .hero-text { font-size: 48px; }
+        }
         @media (max-width: 768px) {
-            .hero-text { font-size: 34px; line-height: 1.15; }
-            .subheading-text { font-size: 18px; line-height: 26px; }
+            .hero-text { font-size: 32px; line-height: 32px; }
+            .subheading-text { font-size: 18px; line-height: 22px; }
+        }
+        @media (max-width: 480px) {
+            .hero-text { font-size: 32px; line-height: 32px; }
+            .subheading-text { font-size: 16px; line-height: 20px; }
         }
     </style>
 </head>
-<body class="bg-[#F8F7F4] text-hermes-charcoal">
+<body class="bg-[#F8F7F4] text-hermes-charcoal min-h-screen overflow-x-hidden">
     
-    <!-- Nav -->
-    <nav class="px-6 lg:px-10 py-6">
-        <a href="/"><img src="hfm-logo.svg" alt="Hermes" class="h-8 w-auto"></a>
+    <!-- Navigation - Desktop only -->
+    <nav class="hidden lg:block absolute top-0 left-0 px-10 py-10 z-10">
+        <a href="/" class="inline-block">
+            <img src="hfm-logo.svg" alt="Hermes" class="h-8 w-auto">
+        </a>
     </nav>
     
-    <!-- Hero -->
-    <section class="min-h-[80vh] flex items-center px-6 lg:px-10">
-        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-            <div class="text-center lg:text-left">
-                <h1 class="hero-text text-hermes-charcoal mb-6">
-                    An assistant that actually gets things done.
+    <!-- Hero Section -->
+    <section class="min-h-screen px-6 lg:px-10">
+        <div class="lg:min-h-screen lg:h-screen grid grid-cols-12 gap-0 lg:gap-5 items-start lg:items-center content-start lg:content-center pt-0">
+            
+            <!-- Mobile Logo (centered) -->
+            <div class="lg:hidden col-span-12 flex justify-center pt-3 mb-2">
+                <a href="/"><img src="hfm-logo.svg" alt="Hermes" class="h-8 w-auto"></a>
+            </div>
+            
+            <!-- Left: Text Content - Desktop -->
+            <div class="hidden lg:flex col-span-6 flex-col items-center justify-center text-center py-0 px-0">
+                <h1 class="hero-text text-hermes-charcoal mb-14">
+                    An assistant<br>
+                    that actually<br>
+                    gets things done.
                 </h1>
-                <p class="subheading-text text-hermes-charcoal/70 mb-4">
-                    Right in Telegram. No app to download. Just ask, and it happens.
-                </p>
-                <p class="subheading-text text-hermes-charcoal/80 mb-8 min-h-[32px]">
+                <p class="subheading-text text-hermes-charcoal/80 mb-14 min-h-[30px]">
                     <span id="typewriter"></span><span class="typewriter-cursor">|</span>
                 </p>
-                <a href="https://t.me/hermesformasses_bot?start=v2" class="btn btn-lg rounded-full px-12 bg-black hover:bg-gray-900 text-white border-none font-kantumruy font-bold">
-                    Start Free in Telegram →
-                </a>
+                <a href="https://t.me/hermesformasses_bot?start=v2" class="btn rounded-full px-20 font-bold text-xl bg-black hover:bg-gray-900 text-white border-none hover:-translate-y-0.5 transition-transform" style="font-family: 'Kantumruy', sans-serif; line-height: 30px; letter-spacing: -0.05em;">Start Free in Telegram →</a>
                 <p class="font-kantumruy text-sm text-hermes-charcoal/50 mt-4">Free credits included. No credit card required.</p>
             </div>
-            <div class="flex justify-center">
-                <video autoplay loop muted playsinline poster="hermes_hero_poster.jpg" class="w-full max-w-md rounded-[40px]">
+            
+            <!-- Right: Video - Desktop -->
+            <div class="hidden lg:flex col-start-7 col-end-12 items-center justify-start h-full py-16">
+                <video autoplay loop muted playsinline poster="hermes_hero_poster.jpg" class="h-full max-h-[75vh] w-auto object-cover rounded-[50px]">
                     <source src="hermes_hero.webm" type="video/webm">
                     <source src="hermes_hero.mp4" type="video/mp4">
                 </video>
+            </div>
+            
+            <!-- Mobile: Headline -->
+            <div class="lg:hidden col-span-12 text-center px-4 mb-8">
+                <h1 class="hero-text text-hermes-charcoal" style="margin: 0; padding: 0;">An assistant<br>that actually<br>gets things done.</h1>
+            </div>
+            
+            <!-- Mobile: CTA Button -->
+            <div class="lg:hidden col-span-12 flex flex-col items-center mb-6">
+                <a href="https://t.me/hermesformasses_bot?start=v2" class="btn rounded-full px-20 font-bold text-xl bg-black hover:bg-gray-900 text-white border-none" style="font-family: 'Kantumruy', sans-serif; line-height: 30px; letter-spacing: -0.05em;">Start Free in Telegram →</a>
+                <p class="font-kantumruy text-sm text-hermes-charcoal/50 mt-3">Free credits included. No credit card required.</p>
+            </div>
+            
+            <!-- Mobile: Video with typewriter overlay -->
+            <div class="lg:hidden col-span-12 flex justify-center px-4 mb-6">
+                <div class="relative w-full max-w-sm">
+                    <video autoplay loop muted playsinline poster="hermes_hero_poster.jpg" class="w-full object-cover rounded-[40px]">
+                        <source src="hermes_hero.webm" type="video/webm">
+                        <source src="hermes_hero.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="bg-white/70 backdrop-blur-md rounded-full px-6 py-3 shadow-lg">
+                            <p class="subheading-text text-hermes-charcoal whitespace-nowrap">
+                                <span id="typewriter-mobile"></span><span class="typewriter-cursor">|</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     
     <!-- The Difference -->
-    <section class="py-20 px-6 lg:px-10">
+    <section class="py-16 lg:py-24 px-6 lg:px-10">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="font-roboto-mono font-medium text-3xl lg:text-4xl text-hermes-charcoal mb-6" style="letter-spacing: -0.05em;">
+            <h2 class="font-roboto-mono font-medium text-2xl lg:text-4xl text-hermes-charcoal mb-12 lg:mb-16" style="letter-spacing: -0.05em;">
                 The AI that doesn't just talk — it does.
             </h2>
-            <p class="font-kantumruy text-xl text-hermes-charcoal/70 mb-6 max-w-2xl mx-auto">
-                You've tried ChatGPT. It's smart. It's helpful. But when you ask it to book a restaurant or send an email, it gives you instructions.
-            </p>
-            <p class="font-kantumruy text-xl text-hermes-charcoal font-bold mb-16">
-                Hermes actually does it for you.
-            </p>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white/60 rounded-3xl p-8 text-left">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+                <div class="text-center">
                     <div class="text-3xl mb-4">🍽️</div>
-                    <h3 class="font-kantumruy font-bold text-xl mb-3">It Books Things</h3>
-                    <p class="font-kantumruy text-hermes-charcoal/70">Not "here's how to make a reservation." Hermes finds availability and books your table. You get a confirmation in Telegram.</p>
+                    <h3 class="font-kantumruy font-bold text-lg lg:text-xl text-hermes-charcoal mb-2">It Books Things</h3>
+                    <p class="font-kantumruy text-hermes-charcoal/70">Finds availability and books your table. Confirmation in Telegram.</p>
                 </div>
-                <div class="bg-white/60 rounded-3xl p-8 text-left">
+                <div class="text-center">
                     <div class="text-3xl mb-4">✉️</div>
-                    <h3 class="font-kantumruy font-bold text-xl mb-3">It Sends Messages</h3>
-                    <p class="font-kantumruy text-hermes-charcoal/70">Not "here's a draft email." Hermes writes it, sends it from your account, and lets you know it's done.</p>
+                    <h3 class="font-kantumruy font-bold text-lg lg:text-xl text-hermes-charcoal mb-2">It Sends Messages</h3>
+                    <p class="font-kantumruy text-hermes-charcoal/70">Writes it, sends it, lets you know it's done.</p>
                 </div>
-                <div class="bg-white/60 rounded-3xl p-8 text-left">
+                <div class="text-center">
                     <div class="text-3xl mb-4">📅</div>
-                    <h3 class="font-kantumruy font-bold text-xl mb-3">It Manages Your Calendar</h3>
-                    <p class="font-kantumruy text-hermes-charcoal/70">Not "you should add this." Hermes creates the event, sets the reminder, and invites whoever needs to be there.</p>
+                    <h3 class="font-kantumruy font-bold text-lg lg:text-xl text-hermes-charcoal mb-2">It Manages Your Calendar</h3>
+                    <p class="font-kantumruy text-hermes-charcoal/70">Creates events, sets reminders, invites people.</p>
                 </div>
             </div>
-            
-            <p class="font-kantumruy text-lg text-hermes-charcoal/60 mt-12 max-w-xl mx-auto">
-                Most AI assistants are great at conversation. Hermes is great at getting things off your plate.
-            </p>
         </div>
     </section>
     
     <!-- How It Works -->
-    <section class="py-20 px-6 lg:px-10 bg-white/50">
+    <section class="py-16 lg:py-24 px-6 lg:px-10 bg-white/50">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="font-roboto-mono font-medium text-3xl lg:text-4xl text-hermes-charcoal mb-4" style="letter-spacing: -0.05em;">
+            <h2 class="font-roboto-mono font-medium text-2xl lg:text-4xl text-hermes-charcoal mb-12 lg:mb-16" style="letter-spacing: -0.05em;">
                 Simple enough for anyone.
             </h2>
-            <p class="font-kantumruy text-xl text-hermes-charcoal/60 mb-16">Smart enough for everything.</p>
-            
-            <div class="grid md:grid-cols-3 gap-12 text-left">
-                <div>
-                    <div class="font-roboto-mono text-5xl text-hermes-charcoal/20 mb-4">1</div>
-                    <h3 class="font-kantumruy font-bold text-xl mb-3">Open Telegram</h3>
-                    <p class="font-kantumruy text-hermes-charcoal/70">That's it. If you have Telegram, you're ready. No download, no signup forms, no waiting.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+                <div class="text-center">
+                    <div class="font-roboto-mono text-5xl lg:text-6xl text-hermes-charcoal/20 mb-4">1</div>
+                    <h3 class="font-kantumruy font-bold text-lg lg:text-xl text-hermes-charcoal mb-2">Open Telegram</h3>
+                    <p class="font-kantumruy text-hermes-charcoal/70">No download, no signup forms, no waiting.</p>
                 </div>
-                <div>
-                    <div class="font-roboto-mono text-5xl text-hermes-charcoal/20 mb-4">2</div>
-                    <h3 class="font-kantumruy font-bold text-xl mb-3">Tell Hermes what you need</h3>
-                    <p class="font-kantumruy text-hermes-charcoal/70">"Book a haircut for Thursday." "Email my landlord about the leak." Just say it like you'd text a friend.</p>
+                <div class="text-center">
+                    <div class="font-roboto-mono text-5xl lg:text-6xl text-hermes-charcoal/20 mb-4">2</div>
+                    <h3 class="font-kantumruy font-bold text-lg lg:text-xl text-hermes-charcoal mb-2">Tell Hermes what you need</h3>
+                    <p class="font-kantumruy text-hermes-charcoal/70">Just say it like you'd text a friend.</p>
                 </div>
-                <div>
-                    <div class="font-roboto-mono text-5xl text-hermes-charcoal/20 mb-4">3</div>
-                    <h3 class="font-kantumruy font-bold text-xl mb-3">It handles the rest</h3>
-                    <p class="font-kantumruy text-hermes-charcoal/70">Hermes takes care of the details. You'll get updates as it works, and a ping when it's done.</p>
+                <div class="text-center">
+                    <div class="font-roboto-mono text-5xl lg:text-6xl text-hermes-charcoal/20 mb-4">3</div>
+                    <h3 class="font-kantumruy font-bold text-lg lg:text-xl text-hermes-charcoal mb-2">It handles the rest</h3>
+                    <p class="font-kantumruy text-hermes-charcoal/70">Updates as it works, pings when done.</p>
                 </div>
             </div>
-            
-            <p class="font-kantumruy text-xl text-hermes-charcoal font-medium mt-16">Your to-do list just got a lot shorter.</p>
+            <p class="font-kantumruy text-lg text-hermes-charcoal/60 mt-12">Your to-do list just got a lot shorter.</p>
         </div>
     </section>
     
     <!-- Pricing -->
-    <section class="py-20 px-6 lg:px-10">
-        <div class="max-w-3xl mx-auto text-center">
-            <h2 class="font-roboto-mono font-medium text-3xl lg:text-4xl text-hermes-charcoal mb-6" style="letter-spacing: -0.05em;">
+    <section class="py-16 lg:py-24 px-6 lg:px-10">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="font-roboto-mono font-medium text-2xl lg:text-4xl text-hermes-charcoal mb-6 lg:mb-8" style="letter-spacing: -0.05em;">
                 Start free. Pay only for what you use.
             </h2>
-            <p class="font-kantumruy text-xl text-hermes-charcoal/70 mb-12 max-w-xl mx-auto">
-                No monthly subscriptions. No tiers. No surprise charges. Hermes runs on credits—think of them like prepaid minutes.
+            <p class="font-kantumruy text-lg lg:text-xl text-hermes-charcoal/70 mb-10 lg:mb-12">
+                No subscriptions. No tiers. No surprise charges.<br>
+                Top up when you need more — right in Telegram.
             </p>
-            
-            <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-12">
-                <div class="bg-white/80 rounded-3xl p-8 text-left">
-                    <h3 class="font-kantumruy font-bold text-xl mb-4">Free to Start</h3>
-                    <ul class="font-kantumruy text-hermes-charcoal/70 space-y-2">
-                        <li>✓ 500 credits included</li>
-                        <li>✓ Enough for ~20-30 tasks</li>
-                        <li>✓ No credit card required</li>
-                        <li>✓ Start in under 60 seconds</li>
-                    </ul>
-                </div>
-                <div class="bg-white/80 rounded-3xl p-8 text-left">
-                    <h3 class="font-kantumruy font-bold text-xl mb-4">Pay-As-You-Go</h3>
-                    <ul class="font-kantumruy text-hermes-charcoal/70 space-y-2">
-                        <li>✓ Top up anytime in Telegram</li>
-                        <li>✓ Credits never expire</li>
-                        <li>✓ 10-50 credits per task</li>
-                        <li>✓ Only pay for completed tasks</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <p class="font-kantumruy text-hermes-charcoal/60 max-w-lg mx-auto">
-                Most students and small business owners spend $5-15/month. But if you only need Hermes occasionally? You might go weeks on one top-up.
-            </p>
-            <p class="font-kantumruy text-sm text-hermes-charcoal/50 mt-4 italic">
-                If a task fails, you don't get charged. Fair is fair.
-            </p>
-        </div>
-    </section>
-    
-    <!-- Footer CTA -->
-    <section class="py-20 px-6 lg:px-10 bg-hermes-charcoal text-white">
-        <div class="max-w-2xl mx-auto text-center">
-            <h2 class="font-roboto-mono font-medium text-3xl lg:text-4xl mb-6" style="letter-spacing: -0.05em;">
-                Your personal assistant is waiting.
-            </h2>
-            <p class="font-kantumruy text-xl text-white/70 mb-4">
-                Hermes is already helping thousands of students and small business owners get more done in less time.
-            </p>
-            <p class="font-kantumruy text-lg text-white/90 mb-10">
-                No learning curve. No complicated setup. The first 500 credits are on us.
-            </p>
-            <a href="https://t.me/hermesformasses_bot?start=v2" class="btn btn-lg rounded-full px-12 bg-white hover:bg-gray-100 text-hermes-charcoal border-none font-kantumruy font-bold">
+            <a href="https://t.me/hermesformasses_bot?start=v2" class="btn rounded-full px-16 lg:px-20 font-bold text-lg lg:text-xl bg-black hover:bg-gray-900 text-white border-none hover:-translate-y-0.5 transition-transform" style="font-family: 'Kantumruy', sans-serif; line-height: 30px; letter-spacing: -0.05em;">
                 Start Free in Telegram →
             </a>
-            <p class="font-kantumruy text-sm text-white/50 mt-6">Takes less than a minute. No credit card needed.</p>
-            
-            <div class="flex justify-center gap-6 mt-10 text-sm text-white/60 font-kantumruy">
-                <span>✓ Works with your existing email</span>
-                <span>✓ Bank-level security</span>
-            </div>
+            <p class="font-kantumruy text-sm text-hermes-charcoal/50 mt-6 italic">If a task fails, you don't get charged. Fair is fair.</p>
         </div>
     </section>
     
     <!-- Footer -->
     <footer class="py-8 px-6 lg:px-10 border-t border-hermes-charcoal/10">
-        <div class="max-w-4xl mx-auto flex justify-between items-center">
+        <div class="max-w-4xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-4">
             <img src="hfm-logo.svg" alt="Hermes" class="h-5 w-auto opacity-50">
-            <p class="font-kantumruy text-sm text-hermes-charcoal/50">© 2026 Hermes</p>
+            <p class="font-kantumruy text-sm text-hermes-charcoal/50">© 2026 Hermes. All rights reserved.</p>
         </div>
     </footer>
     
@@ -254,11 +236,13 @@
             "Find a dog-friendly café near campus"
         ];
         const typewriter = document.getElementById('typewriter');
+        const typewriterMobile = document.getElementById('typewriter-mobile');
         let phraseIndex = 0, charIndex = 0, isDeleting = false, typingSpeed = 80;
         function type() {
             const currentPhrase = phrases[phraseIndex];
             const text = isDeleting ? currentPhrase.substring(0, charIndex - 1) : currentPhrase.substring(0, charIndex + 1);
             if (typewriter) typewriter.textContent = text;
+            if (typewriterMobile) typewriterMobile.textContent = text;
             if (isDeleting) { charIndex--; typingSpeed = 20; } else { charIndex++; typingSpeed = 80; }
             if (!isDeleting && charIndex === currentPhrase.length) { isDeleting = true; typingSpeed = 2000; }
             else if (isDeleting && charIndex === 0) { isDeleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; typingSpeed = 500; }
