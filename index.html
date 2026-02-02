@@ -77,7 +77,34 @@
             font-family: 'Kantumruy', sans-serif;
             font-weight: 700;
             font-size: 18px;
-            line-height: 30px;
+            line-height: 1.2;
+        }
+        
+        /* Button Standards */
+        .btn-primary {
+            display: inline-block;
+            background: black;
+            color: white;
+            font-family: 'Kantumruy', sans-serif;
+            font-weight: 700;
+            border-radius: 9999px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .btn-primary:hover {
+            background: #17071E;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(-1px);
+        }
+        /* Desktop button */
+        .btn-desktop {
+            font-size: 18px;
+            padding: 16px 40px;
+        }
+        /* Mobile button */
+        .btn-mobile {
+            font-size: 16px;
+            padding: 12px 32px;
         }
         
         @media (max-width: 1024px) {
@@ -148,7 +175,7 @@
                 
                 <!-- CTA Button -->
                 <a href="https://t.me/hermesformasses_bot?start=web_landing" 
-                   class="inline-block bg-black text-white button-text px-10 py-4 rounded-full transition-all duration-200 hover:bg-hermes-charcoal hover:shadow-lg hover:-translate-y-0.5">
+                   class="btn-primary btn-desktop">
                     Try it free now
                 </a>
             </div>
@@ -175,19 +202,18 @@
             
             <!-- Mobile: Video with typewriter overlay -->
             <div class="lg:hidden col-span-12 flex justify-center px-6 -mt-1">
-                <div class="relative w-full max-w-xs">
+                <div class="relative inline-block">
                     <video autoplay loop muted playsinline poster="hermes_hero_poster.jpg"
-                         class="w-full object-cover rounded-[40px]">
+                         class="max-w-xs w-full rounded-[40px]">
                         <source src="hermes_hero.webm" type="video/webm">
                         <source src="hermes_hero.mp4" type="video/mp4">
                     </video>
-                    <!-- Glassmorphism typewriter overlay - flex centered -->
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="bg-white/70 backdrop-blur-md rounded-full px-6 py-3 shadow-lg">
-                            <p class="subheading-text text-hermes-charcoal whitespace-nowrap text-center">
-                                <span id="typewriter-mobile"></span><span class="typewriter-cursor">|</span>
-                            </p>
-                        </div>
+                    <!-- Glassmorphism typewriter overlay - absolute centered -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                                bg-white/70 backdrop-blur-md rounded-full px-5 py-2 shadow-lg">
+                        <p class="subheading-text text-hermes-charcoal whitespace-nowrap">
+                            <span id="typewriter-mobile"></span><span class="typewriter-cursor">|</span>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -195,7 +221,7 @@
             <!-- Mobile: CTA Button -->
             <div class="lg:hidden col-span-12 flex justify-center pt-3 pb-6">
                 <a href="https://t.me/hermesformasses_bot?start=web_landing" 
-                   class="inline-block bg-black text-white button-text px-10 py-3 rounded-full text-center transition-all duration-200 hover:bg-hermes-charcoal hover:shadow-lg">
+                   class="btn-primary btn-mobile">
                     Try it free now
                 </a>
             </div>
