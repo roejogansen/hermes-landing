@@ -77,18 +77,16 @@
         .chat-bubble {
             position: relative;
         }
-        .chat-bubble::before {
+        .chat-bubble::after {
             content: '';
             position: absolute;
-            left: 16px;
-            bottom: -8px;
-            width: 16px;
-            height: 16px;
-            background: inherit;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 0 0 0 8px;
-            clip-path: polygon(0 0, 100% 0, 0 100%);
+            left: 20px;
+            bottom: -6px;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid rgba(255, 255, 255, 0.8);
         }
         
         .button-text {
@@ -140,10 +138,10 @@
     
     <!-- Hero Section - 12 column grid -->
     <main class="min-h-screen px-6 lg:px-10">
-        <div class="min-h-screen lg:h-screen grid grid-cols-12 gap-5 lg:items-center pt-10 lg:pt-0">
+        <div class="min-h-screen lg:h-screen grid grid-cols-12 gap-3 lg:gap-5 lg:items-center pt-6 lg:pt-0">
             
             <!-- Mobile Logo (in-flow, not absolute) -->
-            <div class="lg:hidden col-span-12 flex justify-center pt-2 pb-3">
+            <div class="lg:hidden col-span-12 flex justify-center pt-1 pb-1">
                 <a href="/">
                     <img src="hfm-logo.svg" alt="Hermes" class="h-8 w-auto">
                 </a>
@@ -183,7 +181,7 @@
             
             <!-- Mobile Layout: Headline only -->
             <div class="lg:hidden col-span-12 text-center px-4">
-                <h1 class="hero-text text-hermes-charcoal mb-3">
+                <h1 class="hero-text text-hermes-charcoal mb-2">
                     AI that<br>
                     remembers &<br>
                     actually does<br>
@@ -192,8 +190,8 @@
             </div>
             
             <!-- Mobile: Video with typewriter overlay -->
-            <div class="lg:hidden col-span-12 flex justify-center px-4">
-                <div class="relative w-full max-w-sm">
+            <div class="lg:hidden col-span-12 flex justify-center px-6">
+                <div class="relative w-full max-w-xs">
                     <video autoplay loop muted playsinline poster="hermes_hero_poster.jpg"
                          class="w-full object-cover rounded-[40px]">
                         <source src="hermes_hero.webm" type="video/webm">
@@ -211,7 +209,7 @@
             </div>
             
             <!-- Mobile: CTA Button -->
-            <div class="lg:hidden col-span-12 flex justify-center pt-6 pb-10">
+            <div class="lg:hidden col-span-12 flex justify-center pt-4 pb-6">
                 <a href="https://t.me/hermesformasses_bot?start=web_landing" 
                    class="inline-block bg-black text-white button-text px-8 py-3 rounded-full transition-all duration-200 hover:bg-hermes-charcoal hover:shadow-lg">
                     Try it free now
