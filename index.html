@@ -77,36 +77,7 @@
             font-family: 'Kantumruy', sans-serif;
             font-weight: 700;
             font-size: 18px;
-            line-height: 1.2;
-        }
-        
-        /* Button Standards */
-        .btn-primary {
-            display: inline-block;
-            background: black;
-            color: white;
-            font-family: 'Kantumruy', sans-serif;
-            font-weight: 700;
-            border-radius: 9999px;
-            text-align: center;
-            transition: all 0.2s;
-        }
-        .btn-primary:hover {
-            background: #17071E;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            transform: translateY(-1px);
-        }
-        /* Desktop button */
-        .btn-desktop {
-            font-size: 18px;
-            padding: 16px 40px;
-        }
-        /* Mobile button */
-        .btn-mobile {
-            font-size: 16px;
-            padding: 10px 28px;
-            height: 44px;
-            line-height: 24px;
+            line-height: 30px;
         }
         
         @media (max-width: 1024px) {
@@ -151,12 +122,12 @@
     
     <!-- Hero Section - 12 column grid -->
     <main class="min-h-screen px-6 lg:px-10">
-        <div class="min-h-screen lg:h-screen grid grid-cols-12 gap-3 lg:gap-5 lg:items-center pt-6 lg:pt-0">
+        <div class="min-h-screen lg:h-screen grid grid-cols-12 gap-5 lg:items-center pt-10 lg:pt-0">
             
             <!-- Mobile Logo (in-flow, not absolute) -->
-            <div class="lg:hidden col-span-12 flex justify-center" style="margin-bottom: 20px;">
+            <div class="lg:hidden col-span-12 flex justify-center pt-2 pb-6">
                 <a href="/">
-                    <img src="hfm-logo.svg" alt="Hermes" class="h-8 w-auto">
+                    <img src="hfm-logo.svg" alt="Hermes" class="h-10 w-auto">
                 </a>
             </div>
             
@@ -177,7 +148,7 @@
                 
                 <!-- CTA Button -->
                 <a href="https://t.me/hermesformasses_bot?start=web_landing" 
-                   class="btn-primary btn-desktop">
+                   class="inline-block bg-black text-white button-text px-10 py-4 rounded-full transition-all duration-200 hover:bg-hermes-charcoal hover:shadow-lg hover:-translate-y-0.5">
                     Try it free now
                 </a>
             </div>
@@ -193,8 +164,8 @@
             </div>
             
             <!-- Mobile Layout: Headline only -->
-            <div class="lg:hidden col-span-12 text-center px-4" style="margin-bottom: 40px;">
-                <h1 class="hero-text text-hermes-charcoal">
+            <div class="lg:hidden col-span-12 text-center px-4">
+                <h1 class="hero-text text-hermes-charcoal mb-6">
                     AI that<br>
                     remembers &<br>
                     actually does<br>
@@ -203,28 +174,28 @@
             </div>
             
             <!-- Mobile: Video with typewriter overlay -->
-            <div class="lg:hidden col-span-12 flex justify-center px-6">
-                <div class="relative inline-flex">
+            <div class="lg:hidden col-span-12 flex justify-center px-4">
+                <div class="relative w-full max-w-sm">
                     <video autoplay loop muted playsinline poster="hermes_hero_poster.jpg"
-                         class="max-w-[340px] rounded-[40px]">
+                         class="w-full object-cover rounded-[40px]">
                         <source src="hermes_hero.webm" type="video/webm">
                         <source src="hermes_hero.mp4" type="video/mp4">
                     </video>
-                    <!-- Glassmorphism typewriter overlay - centered with blue border -->
-                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <div class="bg-white/80 backdrop-blur-md rounded-full px-5 py-2 shadow-lg border border-blue-300/50">
-                            <p class="subheading-text text-hermes-charcoal whitespace-nowrap">
-                                <span id="typewriter-mobile"></span><span class="typewriter-cursor">|</span>
-                            </p>
-                        </div>
+                    <!-- Glassmorphism typewriter overlay -->
+                    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
+                                bg-white/70 backdrop-blur-md rounded-full px-6 py-3
+                                shadow-lg">
+                        <p class="subheading-text text-hermes-charcoal whitespace-nowrap">
+                            <span id="typewriter-mobile"></span><span class="typewriter-cursor">|</span>
+                        </p>
                     </div>
                 </div>
             </div>
             
             <!-- Mobile: CTA Button -->
-            <div class="lg:hidden col-span-12 flex justify-center pb-6" style="margin-top: 40px;">
+            <div class="lg:hidden col-span-12 flex justify-center pt-6 pb-10">
                 <a href="https://t.me/hermesformasses_bot?start=web_landing" 
-                   class="btn-primary btn-mobile">
+                   class="inline-block bg-black text-white button-text px-8 py-3 rounded-full transition-all duration-200 hover:bg-hermes-charcoal hover:shadow-lg">
                     Try it free now
                 </a>
             </div>
