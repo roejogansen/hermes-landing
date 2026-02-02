@@ -204,18 +204,19 @@
             
             <!-- Mobile: Video with typewriter overlay -->
             <div class="lg:hidden col-span-12 flex justify-center px-6 -mt-1">
-                <div class="relative" style="width: fit-content;">
+                <div class="relative inline-flex">
                     <video autoplay loop muted playsinline poster="hermes_hero_poster.jpg"
-                         class="max-w-xs rounded-[40px] block">
+                         class="max-w-[280px] rounded-[40px]">
                         <source src="hermes_hero.webm" type="video/webm">
                         <source src="hermes_hero.mp4" type="video/mp4">
                     </video>
-                    <!-- Glassmorphism typewriter overlay - centered -->
-                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
-                         class="bg-white/70 backdrop-blur-md rounded-full px-5 py-2 shadow-lg">
-                        <p class="subheading-text text-hermes-charcoal whitespace-nowrap">
-                            <span id="typewriter-mobile"></span><span class="typewriter-cursor">|</span>
-                        </p>
+                    <!-- Glassmorphism typewriter overlay - centered with blue border -->
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div class="bg-white/80 backdrop-blur-md rounded-full px-5 py-2 shadow-lg border border-blue-300/50">
+                            <p class="subheading-text text-hermes-charcoal whitespace-nowrap">
+                                <span id="typewriter-mobile"></span><span class="typewriter-cursor">|</span>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
