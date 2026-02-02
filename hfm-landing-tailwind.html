@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hermes - AI that remembers & actually does things for you</title>
+    <meta name="description" content="AI that remembers and actually does things for you. Try it free in Telegram.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="AI that remembers & actually does things for you">
+    <meta property="og:description" content="Book a restaurant. Send an email. Your AI assistant that actually gets things done.">
+    <meta property="og:type" content="website">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Kantumruy:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'roboto-mono': ['"Roboto Mono"', 'monospace'],
+                        'kantumruy': ['Kantumruy', 'sans-serif'],
+                    },
+                    colors: {
+                        'hermes': {
+                            'bg': '#F5F5F0',
+                            'charcoal': '#17071E',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .hero-text {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 500;
+            font-size: 60px;
+            line-height: 0.95; /* -5% */
+            letter-spacing: -0.02em;
+        }
+        
+        .subheading-text {
+            font-family: 'Kantumruy', sans-serif;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 30px;
+            letter-spacing: -0.05em; /* -5% */
+        }
+        
+        .typewriter-cursor {
+            animation: blink 1s infinite;
+            margin-left: 2px;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .button-text {
+            font-family: 'Kantumruy', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 30px;
+        }
+        
+        @media (max-width: 1024px) {
+            .hero-text {
+                font-size: 48px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-text {
+                font-size: 36px;
+                line-height: 1.1;
+            }
+            .subheading-text {
+                font-size: 18px;
+                line-height: 22px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-text {
+                font-size: 32px;
+            }
+            .subheading-text {
+                font-size: 16px;
+                line-height: 20px;
+            }
+            .button-text {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#F8F7F4] text-hermes-charcoal min-h-screen overflow-x-hidden">
+    
+    <!-- Navigation -->
+    <nav class="absolute top-0 left-0 right-0 px-10 py-10 z-10 lg:left-0 lg:right-auto">
+        <a href="/" class="inline-block mx-auto lg:mx-0 block lg:inline-block text-center lg:text-left">
+            <img src="hfm-logo.svg" alt="Hermes" class="h-10 w-auto mx-auto lg:mx-0">
+        </a>
+    </nav>
+    
+    <!-- Hero Section - 12 column grid -->
+    <main class="min-h-screen px-10">
+        <div class="h-screen grid grid-cols-12 gap-5 items-center">
+            
+            <!-- Left: Text Content (columns 1-6) -->
+            <div class="col-span-12 lg:col-span-6 flex flex-col items-center justify-center text-center py-8 lg:py-0 px-4 lg:px-0">
+                <!-- Headline -->
+                <h1 class="hero-text text-hermes-charcoal mb-8 lg:mb-14">
+                    AI that<br>
+                    remembers &<br>
+                    actually does<br>
+                    things for you.
+                </h1>
+                
+                <!-- Subheadline with typewriter effect -->
+                <p class="subheading-text text-hermes-charcoal/80 mb-8 lg:mb-14 min-h-[60px] lg:min-h-[30px]">
+                    <span id="typewriter"></span><span class="typewriter-cursor">|</span>
+                </p>
+                
+                <!-- CTA Button -->
+                <a href="https://t.me/hermesformasses_bot?start=web_landing" 
+                   class="inline-block bg-black text-white button-text px-8 lg:px-10 py-3 lg:py-4 rounded-full transition-all duration-200 hover:bg-hermes-charcoal hover:shadow-lg hover:-translate-y-0.5">
+                    Try it free now
+                </a>
+            </div>
+            
+            <!-- Right: Hermes Video (columns 7-11, with margin from right edge) -->
+            <div class="hidden lg:flex col-start-7 col-end-12 items-center justify-start h-full py-16">
+                <video autoplay loop muted playsinline
+                     class="h-full max-h-[75vh] w-auto object-cover rounded-[50px]">
+                    <source src="hfm-hermes-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <!-- Mobile Video -->
+            <div class="lg:hidden col-span-12 flex justify-center pb-8 px-4">
+                <video autoplay loop muted playsinline
+                     class="w-full max-w-sm object-cover rounded-[40px]">
+                    <source src="hfm-hermes-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+        </div>
+    </main>
+    
+    <!-- Typewriter Effect -->
+    <script>
+        const phrases = [
+            "Book a restaurant.",
+            "Call your mom.",
+            "Book a flight to Tokyo.",
+            "Send flowers to your girlfriend.",
+            "Order an Uber to the airport.",
+            "Text your team you're running late.",
+            "Return that Amazon package.",
+            "Pay your electric bill.",
+            "Reschedule all tomorrow's meetings.",
+            "Find a plumber for Saturday.",
+            "Check you in for your flight."
+        ];
+        
+        const typewriter = document.getElementById('typewriter');
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 80;
+        
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                typewriter.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 20;
+            } else {
+                typewriter.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 80;
+            }
+            
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typingSpeed = 2000; // Pause before deleting
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typingSpeed = 500; // Pause before typing next
+            }
+            
+            setTimeout(type, typingSpeed);
+        }
+        
+        // Start typewriter
+        type();
+        
+        // Analytics
+        document.querySelector('a[href*="t.me"]').addEventListener('click', () => {
+            console.log('CTA clicked: Try it free now');
+        });
+    </script>
+    
+</body>
+</html>

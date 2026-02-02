@@ -1,0 +1,46 @@
+# Clawdbot internal
+.clawdbot/
+.clawdhub/
+
+# Memory & workspace files (keep local)
+memory/
+MEMORY.md
+AGENTS.md
+BOOTSTRAP.md
+CONTEXT.md
+HEARTBEAT.md
+IDENTITY.md
+SOUL.md
+TOOLS.md
+USER.md
+who-is-jk.md
+STRIPE-FORWARDER-SETUP.md
+
+# Generated images (too large, except landing page assets)
+*.png
+*.jpg
+!hfm-hermes.jpg
+hfm-landing-bg.png
+
+# PDFs
+*.pdf
+
+# Scripts
+*.sh
+*.plist
+
+# Skills (keep local)
+skills/
+
+# Canvas
+canvas/
+
+# LinkedIn
+linkedin-scraper/
+linkedin-of-funnel-presentation.md
+
+# Other HTML versions (keep only tailwind)
+hfm-landing.html
+hfm-landing-figma.html
+hfm-landing-general.html
+hermes-landing.html
