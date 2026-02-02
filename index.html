@@ -104,7 +104,9 @@
         /* Mobile button */
         .btn-mobile {
             font-size: 16px;
-            padding: 12px 32px;
+            padding: 10px 28px;
+            height: 44px;
+            line-height: 24px;
         }
         
         @media (max-width: 1024px) {
@@ -202,15 +204,15 @@
             
             <!-- Mobile: Video with typewriter overlay -->
             <div class="lg:hidden col-span-12 flex justify-center px-6 -mt-1">
-                <div class="relative inline-block">
+                <div class="relative" style="width: fit-content;">
                     <video autoplay loop muted playsinline poster="hermes_hero_poster.jpg"
-                         class="max-w-xs w-full rounded-[40px]">
+                         class="max-w-xs rounded-[40px] block">
                         <source src="hermes_hero.webm" type="video/webm">
                         <source src="hermes_hero.mp4" type="video/mp4">
                     </video>
-                    <!-- Glassmorphism typewriter overlay - absolute centered -->
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-                                bg-white/70 backdrop-blur-md rounded-full px-5 py-2 shadow-lg">
+                    <!-- Glassmorphism typewriter overlay - centered -->
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
+                         class="bg-white/70 backdrop-blur-md rounded-full px-5 py-2 shadow-lg">
                         <p class="subheading-text text-hermes-charcoal whitespace-nowrap">
                             <span id="typewriter-mobile"></span><span class="typewriter-cursor">|</span>
                         </p>
