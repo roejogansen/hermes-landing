@@ -81,10 +81,24 @@
         @media (max-width: 768px) {
             .hero-text {
                 font-size: 36px;
+                line-height: 1.1;
             }
             .subheading-text {
-                font-size: 20px;
-                line-height: 24px;
+                font-size: 18px;
+                line-height: 22px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-text {
+                font-size: 32px;
+            }
+            .subheading-text {
+                font-size: 16px;
+                line-height: 20px;
+            }
+            .button-text {
+                font-size: 16px;
             }
         }
     </style>
@@ -92,9 +106,9 @@
 <body class="bg-[#F8F7F4] text-hermes-charcoal min-h-screen overflow-x-hidden">
     
     <!-- Navigation -->
-    <nav class="absolute top-0 left-0 px-10 py-10 z-10">
-        <a href="/" class="inline-block">
-            <img src="hfm-logo.svg" alt="Hermes" class="h-10 w-auto">
+    <nav class="absolute top-0 left-0 right-0 px-10 py-10 z-10 lg:left-0 lg:right-auto">
+        <a href="/" class="inline-block mx-auto lg:mx-0 block lg:inline-block text-center lg:text-left">
+            <img src="hfm-logo.svg" alt="Hermes" class="h-10 w-auto mx-auto lg:mx-0">
         </a>
     </nav>
     
@@ -103,9 +117,9 @@
         <div class="h-screen grid grid-cols-12 gap-5 items-center">
             
             <!-- Left: Text Content (columns 1-6) -->
-            <div class="col-span-12 lg:col-span-6 flex flex-col items-center justify-center text-center py-20 lg:py-0">
+            <div class="col-span-12 lg:col-span-6 flex flex-col items-center justify-center text-center py-8 lg:py-0 px-4 lg:px-0">
                 <!-- Headline -->
-                <h1 class="hero-text text-hermes-charcoal mb-14">
+                <h1 class="hero-text text-hermes-charcoal mb-8 lg:mb-14">
                     AI that<br>
                     remembers &<br>
                     actually does<br>
@@ -113,29 +127,33 @@
                 </h1>
                 
                 <!-- Subheadline with typewriter effect -->
-                <p class="subheading-text text-hermes-charcoal/80 mb-14">
+                <p class="subheading-text text-hermes-charcoal/80 mb-8 lg:mb-14 min-h-[60px] lg:min-h-[30px]">
                     <span id="typewriter"></span><span class="typewriter-cursor">|</span>
                 </p>
                 
                 <!-- CTA Button -->
                 <a href="https://t.me/hermesformasses_bot?start=web_landing" 
-                   class="inline-block bg-black text-white button-text px-10 py-4 rounded-full transition-all duration-200 hover:bg-hermes-charcoal hover:shadow-lg hover:-translate-y-0.5">
+                   class="inline-block bg-black text-white button-text px-8 lg:px-10 py-3 lg:py-4 rounded-full transition-all duration-200 hover:bg-hermes-charcoal hover:shadow-lg hover:-translate-y-0.5">
                     Try it free now
                 </a>
             </div>
             
-            <!-- Right: Hermes Image (columns 7-11, with margin from right edge) -->
+            <!-- Right: Hermes Video (columns 7-11, with margin from right edge) -->
             <div class="hidden lg:flex col-start-7 col-end-12 items-center justify-start h-full py-16">
-                <img src="hfm-hermes.jpg" 
-                     alt="Hermes, the messenger god" 
+                <video autoplay loop muted playsinline
                      class="h-full max-h-[75vh] w-auto object-cover rounded-[50px]">
+                    <source src="hfm-hermes-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
             
-            <!-- Mobile Image -->
-            <div class="lg:hidden col-span-12 flex justify-center pb-16">
-                <img src="hfm-hermes.jpg" 
-                     alt="Hermes, the messenger god" 
-                     class="w-full max-w-md object-cover rounded-[50px]">
+            <!-- Mobile Video -->
+            <div class="lg:hidden col-span-12 flex justify-center pb-8 px-4">
+                <video autoplay loop muted playsinline
+                     class="w-full max-w-sm object-cover rounded-[40px]">
+                    <source src="hfm-hermes-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
             
         </div>
