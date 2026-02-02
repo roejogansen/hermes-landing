@@ -73,22 +73,23 @@
             51%, 100% { opacity: 0; }
         }
         
-        /* Chat bubble with integrated tail - single shape for consistent blur */
+        /* Chat bubble with rounded corners and tail */
         .chat-bubble {
             position: relative;
-            /* Padding to account for tail in clip-path */
-            padding-bottom: 12px;
-            margin-bottom: -8px;
-            clip-path: polygon(
-                0% 0%,
-                100% 0%,
-                100% calc(100% - 10px),
-                calc(100% - 20px) calc(100% - 10px),
-                calc(100% - 28px) 100%,
-                calc(100% - 36px) calc(100% - 10px),
-                0% calc(100% - 10px),
-                0% 0%
-            );
+            border-radius: 20px;
+        }
+        .chat-bubble::after {
+            content: '';
+            position: absolute;
+            right: 24px;
+            bottom: -6px;
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transform: rotate(45deg);
+            border-radius: 2px;
         }
         
         .button-text {
@@ -201,7 +202,7 @@
                     </video>
                     <!-- Chat bubble typewriter overlay -->
                     <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
-                                bg-white/70 backdrop-blur-xl px-5 pt-2.5 pb-1
+                                bg-[rgba(255,255,255,0.2)] backdrop-blur-xl px-6 py-4
                                 chat-bubble">
                         <p class="subheading-text text-hermes-charcoal whitespace-nowrap">
                             <span id="typewriter-mobile"></span><span class="typewriter-cursor">|</span>
