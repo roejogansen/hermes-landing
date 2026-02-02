@@ -73,25 +73,6 @@
             51%, 100% { opacity: 0; }
         }
         
-        /* Chat bubble with rounded corners and tail */
-        .chat-bubble {
-            position: relative;
-            border-radius: 20px;
-        }
-        .chat-bubble::after {
-            content: '';
-            position: absolute;
-            right: 24px;
-            bottom: -6px;
-            width: 12px;
-            height: 12px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            transform: rotate(45deg);
-            border-radius: 2px;
-        }
-        
         .button-text {
             font-family: 'Kantumruy', sans-serif;
             font-weight: 700;
@@ -200,10 +181,10 @@
                         <source src="hermes_hero.webm" type="video/webm">
                         <source src="hermes_hero.mp4" type="video/mp4">
                     </video>
-                    <!-- Chat bubble typewriter overlay -->
+                    <!-- Glassmorphism typewriter overlay -->
                     <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
-                                bg-[rgba(255,255,255,0.2)] backdrop-blur-xl px-6 py-4
-                                chat-bubble">
+                                bg-white/70 backdrop-blur-md rounded-full px-6 py-3
+                                shadow-lg">
                         <p class="subheading-text text-hermes-charcoal whitespace-nowrap">
                             <span id="typewriter-mobile"></span><span class="typewriter-cursor">|</span>
                         </p>
