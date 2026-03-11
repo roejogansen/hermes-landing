@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<!-- Hermes Food - AI Nutritionist | Dieter Rams: "Less, but better" -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hermes Food - Your AI nutritionist on Telegram</title>
+    <meta name="description" content="Personalized meal plans, smart grocery lists, food logging — all through a simple Telegram chat. No app. No counting. Just eat well.">
+    
+    <meta property="og:title" content="Hermes Food - Your AI nutritionist on Telegram">
+    <meta property="og:description" content="Personalized meal plans, smart grocery lists, food logging. No app. No counting. Just eat well.">
+    <meta property="og:type" content="website">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Kantumruy:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'mono': ['"Roboto Mono"', 'monospace'],
+                        'sans': ['Kantumruy', 'sans-serif'],
+                    },
+                    colors: {
+                        'hermes': {
+                            'bg': '#F5F5F0',
+                            'charcoal': '#17071E',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .hero-text {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 500;
+            line-height: 1;
+            letter-spacing: -0.05em;
+        }
+        .section-heading {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 500;
+            letter-spacing: -0.05em;
+        }
+        .body-text {
+            font-family: 'Kantumruy', sans-serif;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+
+        /* Chat bubbles */
+        .chat-bubble {
+            max-width: 320px;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-family: 'Kantumruy', sans-serif;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+        .chat-user {
+            background: #17071E;
+            color: white;
+            border-bottom-right-radius: 4px;
+            margin-left: auto;
+        }
+        .chat-hermes {
+            background: white;
+            color: #17071E;
+            border-bottom-left-radius: 4px;
+            border: 1px solid rgba(23, 7, 30, 0.08);
+        }
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 24px 16px;
+        }
+
+        /* Fade-in on scroll */
+        .fade-section {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Typewriter */
+        .typewriter-cursor {
+            animation: blink 1s infinite;
+            margin-left: 2px;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text { font-size: 32px !important; line-height: 1.05; }
+            .chat-bubble { max-width: 260px; font-size: 14px; }
+        }
+    </style>
+</head>
+<body class="bg-[#F8F7F4] text-hermes-charcoal min-h-screen overflow-x-hidden">
+    
+    <!-- Navigation -->
+    <nav class="px-6 lg:px-10 py-8 flex justify-between items-center">
+        <a href="/" class="inline-block">
+            <img src="/hfm-logo.svg" alt="Hermes" class="h-7 w-auto">
+        </a>
+        <span class="font-mono text-xs text-hermes-charcoal/40 tracking-wide uppercase">Food</span>
+    </nav>
+
+    <!-- Hero -->
+    <section class="px-6 lg:px-10 pt-8 lg:pt-20 pb-16 lg:pb-28">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            
+            <!-- Left: Text -->
+            <div>
+                <h1 class="hero-text text-hermes-charcoal mb-6" style="font-size: 52px;">
+                    Eat well<br>without<br>thinking<br>about it.
+                </h1>
+                <p class="body-text text-xl text-hermes-charcoal/70 mb-8 max-w-md" style="line-height: 1.5;">
+                    Hermes plans your meals, builds your grocery list, and tracks your nutrition. You just eat.
+                </p>
+                <p class="body-text text-hermes-charcoal/70 mb-10 max-w-md">
+                    <span id="typewriter" class="text-hermes-charcoal font-bold"></span><span class="typewriter-cursor">|</span>
+                </p>
+                <a href="#" class="inline-flex items-center justify-center px-10 py-3 rounded-full font-bold text-lg bg-hermes-charcoal hover:bg-black text-white transition-all hover:-translate-y-0.5 body-text" style="letter-spacing: -0.03em;">
+                    Start on Telegram
+                    <svg class="w-5 h-5 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <p class="body-text text-sm text-hermes-charcoal/40 mt-3">No app to download. No account to create.</p>
+            </div>
+            
+            <!-- Right: Hero image placeholder -->
+            <div class="flex justify-center lg:justify-end">
+                <div class="w-full max-w-sm lg:max-w-md aspect-[3/4] rounded-[40px] bg-hermes-charcoal/5 border border-hermes-charcoal/10 flex items-center justify-center">
+                    <p class="font-mono text-sm text-hermes-charcoal/30 text-center px-8">Hermes with<br>grocery bags<br>— coming soon</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem (stated simply) -->
+    <section class="fade-section px-6 lg:px-10 py-16 lg:py-24 bg-white/50">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="section-heading text-2xl lg:text-4xl text-hermes-charcoal mb-8">
+                Nutrition is simple.<br>Doing it every day is hard.
+            </h2>
+            <p class="body-text text-lg text-hermes-charcoal/60 max-w-xl mx-auto leading-relaxed">
+                You know what to eat. The problem is planning it, buying it, tracking it, and doing it again tomorrow. Hermes handles the logistics so you can focus on living.
+            </p>
+        </div>
+    </section>
+
+    <!-- What Hermes Does (4 pillars) -->
+    <section class="fade-section px-6 lg:px-10 py-16 lg:py-24">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="section-heading text-2xl lg:text-3xl text-hermes-charcoal mb-14 lg:mb-20 text-center">
+                One chat. Everything handled.
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-14">
+                
+                <!-- 1. Meal Plans -->
+                <div>
+                    <div class="font-mono text-4xl text-hermes-charcoal/15 mb-3">01</div>
+                    <h3 class="font-mono font-medium text-lg text-hermes-charcoal mb-2" style="letter-spacing: -0.03em;">Daily meal plans</h3>
+                    <p class="body-text text-hermes-charcoal/60 leading-relaxed">
+                        Every morning, a plan built for your goals, your allergies, your household. Real recipes with real food — not "grilled chicken and broccoli" on repeat.
+                    </p>
+                </div>
+                
+                <!-- 2. Grocery -->
+                <div>
+                    <div class="font-mono text-4xl text-hermes-charcoal/15 mb-3">02</div>
+                    <h3 class="font-mono font-medium text-lg text-hermes-charcoal mb-2" style="letter-spacing: -0.03em;">Smart grocery lists</h3>
+                    <p class="body-text text-hermes-charcoal/60 leading-relaxed">
+                        Weekly list, optimized for one store trip. Knows what you already have, finds the cheapest store, accounts for shelf life. Just shop and go.
+                    </p>
+                </div>
+                
+                <!-- 3. Food Logging -->
+                <div>
+                    <div class="font-mono text-4xl text-hermes-charcoal/15 mb-3">03</div>
+                    <h3 class="font-mono font-medium text-lg text-hermes-charcoal mb-2" style="letter-spacing: -0.03em;">Effortless food logging</h3>
+                    <p class="body-text text-hermes-charcoal/60 leading-relaxed">
+                        Followed the plan? Send 👍. Had something different? Just say what. No scanning barcodes, no searching databases. One message.
+                    </p>
+                </div>
+                
+                <!-- 4. Learns -->
+                <div>
+                    <div class="font-mono text-4xl text-hermes-charcoal/15 mb-3">04</div>
+                    <h3 class="font-mono font-medium text-lg text-hermes-charcoal mb-2" style="letter-spacing: -0.03em;">Gets better over time</h3>
+                    <p class="body-text text-hermes-charcoal/60 leading-relaxed">
+                        Hermes learns what you actually eat, when you skip meals, what your family likes. Week 4 plans are nothing like week 1.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conversation Demo -->
+    <section class="fade-section px-6 lg:px-10 py-16 lg:py-24 bg-white/50">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            
+            <!-- Left: Chat mockup -->
+            <div class="bg-[#F0EFEA] rounded-[28px] overflow-hidden shadow-sm border border-hermes-charcoal/5 max-w-sm mx-auto lg:mx-0 w-full">
+                <div class="bg-hermes-charcoal/5 px-4 py-3 flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-hermes-charcoal/10 flex items-center justify-center">
+                        <span class="text-xs">⚡</span>
+                    </div>
+                    <span class="font-mono text-sm font-medium">Hermes</span>
+                </div>
+                <div class="chat-container" style="min-height: 320px;">
+                    <div class="chat-bubble chat-hermes">
+                        🍳 Frokost: Havregrøt med blåbær og valnøtter<br>
+                        <span class="text-hermes-charcoal/50 text-xs">420 kcal · 18p / 62c / 12f</span>
+                    </div>
+                    <div class="chat-bubble chat-hermes">
+                        🥗 Lunsj: Kyllingwrap med avokado<br>
+                        <span class="text-hermes-charcoal/50 text-xs">580 kcal · 42p / 48c / 22f</span>
+                    </div>
+                    <div class="chat-bubble chat-hermes">
+                        🍛 Middag: Laks med ris og brokkoli (3 porsjoner)<br>
+                        <span class="text-hermes-charcoal/50 text-xs">Din porsjon: 620 kcal · 44p / 52c / 20f</span>
+                    </div>
+                    <div class="chat-bubble chat-user">
+                        👍
+                    </div>
+                    <div class="chat-bubble chat-hermes">
+                        Notert ✓ Fin dag — du traff protein&shy;målet 💪
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right: Explanation -->
+            <div>
+                <h2 class="section-heading text-2xl lg:text-3xl text-hermes-charcoal mb-6">
+                    It's a text conversation.<br>That's it.
+                </h2>
+                <div class="space-y-4 body-text text-hermes-charcoal/60 leading-relaxed">
+                    <p>No app to open. No interface to learn. You already know how to text — so you already know how to use Hermes.</p>
+                    <p>Morning plan arrives at the time you choose. Confirm with a thumbs up, or tell it what changed. It handles the rest.</p>
+                    <p>Cooking for the family? Hermes scales the recipe but tracks only your portion. Your partner doesn't need an account.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Household-aware -->
+    <section class="fade-section px-6 lg:px-10 py-16 lg:py-24">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="section-heading text-2xl lg:text-3xl text-hermes-charcoal mb-6">
+                Built for how people actually eat.
+            </h2>
+            <p class="body-text text-lg text-hermes-charcoal/60 max-w-xl mx-auto leading-relaxed mb-14">
+                Most nutrition apps pretend you live alone and eat at a desk. Hermes doesn't.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <div class="bg-white/60 rounded-2xl p-6 border border-hermes-charcoal/5">
+                    <p class="font-mono text-sm font-medium text-hermes-charcoal mb-2" style="letter-spacing: -0.03em;">Household cooking</p>
+                    <p class="body-text text-sm text-hermes-charcoal/50">Dinner for 4, but tracking for you. Scales recipes, splits groceries, respects everyone's allergies.</p>
+                </div>
+                <div class="bg-white/60 rounded-2xl p-6 border border-hermes-charcoal/5">
+                    <p class="font-mono text-sm font-medium text-hermes-charcoal mb-2" style="letter-spacing: -0.03em;">Real flexibility</p>
+                    <p class="body-text text-sm text-hermes-charcoal/50">"Just me tonight" or "cooking for 6" — plans adapt on the fly. Leftovers get tracked and reused.</p>
+                </div>
+                <div class="bg-white/60 rounded-2xl p-6 border border-hermes-charcoal/5">
+                    <p class="font-mono text-sm font-medium text-hermes-charcoal mb-2" style="letter-spacing: -0.03em;">No guilt, no lecture</p>
+                    <p class="body-text text-sm text-hermes-charcoal/50">Had pizza? Cool. Hermes notes it and moves on. Adjustments happen next week, not next meal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weekly Report teaser -->
+    <section class="fade-section px-6 lg:px-10 py-16 lg:py-24 bg-white/50">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            
+            <!-- Left: Text -->
+            <div class="order-2 lg:order-1">
+                <h2 class="section-heading text-2xl lg:text-3xl text-hermes-charcoal mb-6">
+                    Weekly reports<br>you'll actually read.
+                </h2>
+                <p class="body-text text-hermes-charcoal/60 leading-relaxed mb-4">
+                    Every Sunday: what you ate, how you did, one specific tip to improve next week. Not a spreadsheet — a 30-second summary.
+                </p>
+                <p class="body-text text-hermes-charcoal/60 leading-relaxed">
+                    "You hit protein 6/7 days. Swap yoghurt to skyr at breakfast and you'll close the gap without changing anything else."
+                </p>
+            </div>
+            
+            <!-- Right: Stats mockup -->
+            <div class="order-1 lg:order-2 bg-white rounded-[28px] p-8 shadow-sm border border-hermes-charcoal/5 max-w-sm mx-auto lg:mx-0 w-full">
+                <p class="font-mono text-xs text-hermes-charcoal/40 uppercase tracking-wide mb-6">Week 11 Report</p>
+                <div class="space-y-5">
+                    <div>
+                        <div class="flex justify-between items-baseline mb-1">
+                            <span class="font-mono text-sm text-hermes-charcoal/70">Calories</span>
+                            <span class="font-mono text-sm font-medium">2,580 / 2,650</span>
+                        </div>
+                        <div class="h-2 bg-hermes-charcoal/5 rounded-full overflow-hidden">
+                            <div class="h-full bg-hermes-charcoal/70 rounded-full" style="width: 97%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-baseline mb-1">
+                            <span class="font-mono text-sm text-hermes-charcoal/70">Protein</span>
+                            <span class="font-mono text-sm font-medium">185g / 199g</span>
+                        </div>
+                        <div class="h-2 bg-hermes-charcoal/5 rounded-full overflow-hidden">
+                            <div class="h-full bg-hermes-charcoal/70 rounded-full" style="width: 93%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-baseline mb-1">
+                            <span class="font-mono text-sm text-hermes-charcoal/70">Plan confirmed</span>
+                            <span class="font-mono text-sm font-medium">6 / 7 days</span>
+                        </div>
+                        <div class="h-2 bg-hermes-charcoal/5 rounded-full overflow-hidden">
+                            <div class="h-full bg-hermes-charcoal/70 rounded-full" style="width: 86%"></div>
+                        </div>
+                    </div>
+                    <div class="pt-3 border-t border-hermes-charcoal/5">
+                        <p class="body-text text-sm text-hermes-charcoal/70">💡 Grocery savings this week: <span class="font-bold text-hermes-charcoal">127 NOK</span> by shopping at Rema</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="fade-section px-6 lg:px-10 py-16 lg:py-24">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="section-heading text-2xl lg:text-3xl text-hermes-charcoal mb-14 lg:mb-20">
+                Three minutes to start.
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12">
+                <div class="text-center">
+                    <div class="font-mono text-5xl text-hermes-charcoal/15 mb-3">1</div>
+                    <h3 class="font-mono font-medium text-hermes-charcoal mb-2" style="letter-spacing: -0.03em;">Open Telegram</h3>
+                    <p class="body-text text-hermes-charcoal/60">Start a chat with Hermes. Answer a few questions about your goals, diet, and household.</p>
+                </div>
+                <div class="text-center">
+                    <div class="font-mono text-5xl text-hermes-charcoal/15 mb-3">2</div>
+                    <h3 class="font-mono font-medium text-hermes-charcoal mb-2" style="letter-spacing: -0.03em;">Get your first plan</h3>
+                    <p class="body-text text-hermes-charcoal/60">Tomorrow morning: your personalized meal plan. Sunday: your grocery list for the week.</p>
+                </div>
+                <div class="text-center">
+                    <div class="font-mono text-5xl text-hermes-charcoal/15 mb-3">3</div>
+                    <h3 class="font-mono font-medium text-hermes-charcoal mb-2" style="letter-spacing: -0.03em;">Just eat</h3>
+                    <p class="body-text text-hermes-charcoal/60">Confirm meals with 👍, report changes, or say nothing. Hermes adapts week over week.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="fade-section px-6 lg:px-10 py-16 lg:py-24 bg-white/50">
+        <div class="max-w-sm mx-auto text-center">
+            <h2 class="section-heading text-2xl lg:text-3xl text-hermes-charcoal mb-4">
+                Cheaper than one<br>skipped meal prep.
+            </h2>
+            <p class="body-text text-hermes-charcoal/50 mb-10">
+                Pricing details coming soon.
+            </p>
+            <a href="#" class="inline-flex items-center justify-center w-full px-10 py-3 rounded-full font-bold text-lg bg-hermes-charcoal hover:bg-black text-white transition-all hover:-translate-y-0.5 body-text" style="letter-spacing: -0.03em;">
+                Join the waitlist
+                <svg class="w-5 h-5 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <p class="body-text text-sm text-hermes-charcoal/40 mt-3">No spam. Just early access.</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="fade-section px-6 lg:px-10 py-16 lg:py-24">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="section-heading text-2xl lg:text-3xl text-hermes-charcoal mb-12 text-center">
+                Questions.
+            </h2>
+            
+            <div class="space-y-8">
+                <div>
+                    <h3 class="font-mono font-medium text-hermes-charcoal mb-2" style="letter-spacing: -0.03em;">Why Telegram?</h3>
+                    <p class="body-text text-hermes-charcoal/60 leading-relaxed">You already check it. No new app to install, no new habit to build. Your nutritionist lives where your conversations are.</p>
+                </div>
+                <div>
+                    <h3 class="font-mono font-medium text-hermes-charcoal mb-2" style="letter-spacing: -0.03em;">Does it work for families?</h3>
+                    <p class="body-text text-hermes-charcoal/60 leading-relaxed">Yes. Tell Hermes who eats dinner together and it scales recipes accordingly. Allergies in the household? Handled. Only your portion gets tracked.</p>
+                </div>
+                <div>
+                    <h3 class="font-mono font-medium text-hermes-charcoal mb-2" style="letter-spacing: -0.03em;">What if I go off-plan?</h3>
+                    <p class="body-text text-hermes-charcoal/60 leading-relaxed">Nothing happens. Seriously. Had pizza? Great. Hermes notes it, moves on, and adjusts next week's plan if it sees a pattern. No guilt, no "you have 200 calories left."</p>
+                </div>
+                <div>
+                    <h3 class="font-mono font-medium text-hermes-charcoal mb-2" style="letter-spacing: -0.03em;">How is this different from MyFitnessPal?</h3>
+                    <p class="body-text text-hermes-charcoal/60 leading-relaxed">MyFitnessPal is a database you search. Hermes is a nutritionist you text. It plans, you eat. The entire point is that you spend less time thinking about food, not more.</p>
+                </div>
+                <div>
+                    <h3 class="font-mono font-medium text-hermes-charcoal mb-2" style="letter-spacing: -0.03em;">Is it available in my country?</h3>
+                    <p class="body-text text-hermes-charcoal/60 leading-relaxed">Launching in Norway first — grocery price comparison works with Norwegian stores. Meal planning and tracking work anywhere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 lg:px-10 border-t border-hermes-charcoal/10">
+        <div class="max-w-4xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <img src="/hfm-logo.svg" alt="Hermes" class="h-5 w-auto opacity-50">
+                <span class="font-mono text-xs text-hermes-charcoal/30">/ food</span>
+            </div>
+            <p class="body-text text-sm text-hermes-charcoal/50">© 2026 Redi Tech OÜ. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Typewriter — cycling through real user scenarios
+        const phrases = [
+            "\"What should I eat today?\"",
+            "\"Cooking for 5 tonight\"",
+            "\"I had sushi instead\"",
+            "\"Make me a grocery list\"",
+            "\"Daughter can't eat peanuts\"",
+            "\"I'm sick, pause plans\"",
+            "\"What's cheapest at Rema?\"",
+        ];
+        const el = document.getElementById('typewriter');
+        let phraseIndex = 0, charIndex = 0, isDeleting = false, speed = 70;
+        
+        function type() {
+            const phrase = phrases[phraseIndex];
+            const text = isDeleting 
+                ? phrase.substring(0, charIndex - 1) 
+                : phrase.substring(0, charIndex + 1);
+            el.textContent = text;
+            
+            if (isDeleting) { charIndex--; speed = 25; }
+            else { charIndex++; speed = 70; }
+            
+            if (!isDeleting && charIndex === phrase.length) { 
+                isDeleting = true; speed = 2000; 
+            } else if (isDeleting && charIndex === 0) { 
+                isDeleting = false; 
+                phraseIndex = (phraseIndex + 1) % phrases.length; 
+                speed = 400; 
+            }
+            setTimeout(type, speed);
+        }
+        type();
+
+        // Scroll fade-in
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+        
+        document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
