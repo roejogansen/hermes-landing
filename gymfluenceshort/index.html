@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!-- Gymfluence Short — v4 | Dieter Rams: "Less, but better" -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gymfluence — You build the audience. We build the business.</title>
+    <meta name="description" content="Gymfluence is the operations partner for fitness influencers. You keep creating. We handle everything else.">
+    
+    <meta property="og:title" content="Gymfluence — You build the audience. We build the business.">
+    <meta property="og:description" content="You keep creating. You keep showing up. We handle everything else.">
+    <meta property="og:type" content="website">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Kantumruy+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'mono': ['"Space Mono"', 'monospace'],
+                        'sans': ['"Kantumruy Pro"', 'sans-serif'],
+                    },
+                    colors: {
+                        'gf': {
+                            'bg': '#F5F5F0',
+                            'charcoal': '#17071E',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        
+        .hero-text {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+        }
+        .section-heading {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+        .section-number {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .body-text {
+            font-family: 'Kantumruy Pro', sans-serif;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        .fade-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 40px;
+            border-radius: 100px;
+            font-family: 'Kantumruy Pro', sans-serif;
+            font-weight: 700;
+            font-size: 17px;
+            background: #17071E;
+            color: white;
+            transition: all 0.2s ease;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+        }
+        .cta-btn:hover {
+            background: #000;
+            transform: translateY(-2px);
+        }
+        .cta-btn svg {
+            margin-left: 10px;
+            transition: transform 0.2s ease;
+        }
+        .cta-btn:hover svg {
+            transform: translateX(3px);
+        }
+
+        @media (max-width: 768px) {
+            .hero-text { font-size: 36px !important; }
+        }
+    </style>
+</head>
+<body class="bg-[#F5F5F0] text-gf-charcoal min-h-screen overflow-x-hidden">
+    
+    <!-- Navigation -->
+    <nav class="px-6 lg:px-12 py-8 flex justify-between items-center max-w-6xl mx-auto">
+        <span class="font-mono font-bold text-lg tracking-tight">Gymfluence</span>
+        <a href="#apply" class="font-sans font-medium text-sm text-gf-charcoal/50 hover:text-gf-charcoal transition-colors">Apply to partner →</a>
+    </nav>
+
+    <!-- 01 — HERO -->
+    <section class="px-6 lg:px-12 pt-12 lg:pt-24 pb-20 lg:pb-36">
+        <div class="max-w-5xl mx-auto">
+            <div class="max-w-3xl">
+                <p class="section-number text-sm text-gf-charcoal/25 mb-6">01</p>
+                <h1 class="hero-text text-gf-charcoal mb-8" style="font-size: 56px;">
+                    You build the<br>audience.<br>We build the<br>business.
+                </h1>
+                <p class="body-text text-xl text-gf-charcoal/60 mb-10 max-w-lg" style="line-height: 1.6;">
+                    You keep creating. You keep showing up. We handle everything else.
+                </p>
+                <a href="#apply" class="cta-btn">
+                    Apply to partner
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02 — THE PROBLEM -->
+    <section class="fade-section px-6 lg:px-12 py-20 lg:py-28 bg-white/40">
+        <div class="max-w-5xl mx-auto">
+            <div class="max-w-2xl">
+                <p class="section-number text-sm text-gf-charcoal/25 mb-6">02</p>
+                <h2 class="section-heading text-2xl lg:text-3xl text-gf-charcoal" style="line-height: 1.2;">
+                    Your DMs are full of people<br>asking for help. You just don't<br>have a way to say yes.
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03 — THEM VS US -->
+    <section class="fade-section px-6 lg:px-12 py-20 lg:py-28">
+        <div class="max-w-5xl mx-auto">
+            <p class="section-number text-sm text-gf-charcoal/25 mb-6">03</p>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- Column headers -->
+                <div class="grid grid-cols-2 mb-8">
+                    <div class="pr-8 lg:pr-16">
+                        <p class="font-mono font-bold text-xs text-gf-charcoal/30 uppercase tracking-wider">Typical platform</p>
+                    </div>
+                    <div class="pl-8 lg:pl-16 border-l border-gf-charcoal/10">
+                        <p class="font-mono font-bold text-xs text-gf-charcoal uppercase tracking-wider">Gymfluence</p>
+                    </div>
+                </div>
+                <!-- Rows -->
+                <div class="grid grid-cols-2 mb-6 lg:mb-8">
+                    <div class="pr-8 lg:pr-16">
+                        <p class="body-text text-lg text-gf-charcoal/35">You get software</p>
+                    </div>
+                    <div class="pl-8 lg:pl-16 border-l border-gf-charcoal/10">
+                        <p class="body-text text-lg text-gf-charcoal font-semibold">You get a team</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 mb-6 lg:mb-8">
+                    <div class="pr-8 lg:pr-16">
+                        <p class="body-text text-lg text-gf-charcoal/35">You build programs</p>
+                    </div>
+                    <div class="pl-8 lg:pl-16 border-l border-gf-charcoal/10">
+                        <p class="body-text text-lg text-gf-charcoal font-semibold">We build programs</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 mb-6 lg:mb-8">
+                    <div class="pr-8 lg:pr-16">
+                        <p class="body-text text-lg text-gf-charcoal/35">You manage clients</p>
+                    </div>
+                    <div class="pl-8 lg:pl-16 border-l border-gf-charcoal/10">
+                        <p class="body-text text-lg text-gf-charcoal font-semibold">We manage clients</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 mb-6 lg:mb-8">
+                    <div class="pr-8 lg:pr-16">
+                        <p class="body-text text-lg text-gf-charcoal/35">You figure out marketing</p>
+                    </div>
+                    <div class="pl-8 lg:pl-16 border-l border-gf-charcoal/10">
+                        <p class="body-text text-lg text-gf-charcoal font-semibold">We bring 5 years of strategies</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 mb-6 lg:mb-8">
+                    <div class="pr-8 lg:pr-16">
+                        <p class="body-text text-lg text-gf-charcoal/35">You're alone at scale</p>
+                    </div>
+                    <div class="pl-8 lg:pl-16 border-l border-gf-charcoal/10">
+                        <p class="body-text text-lg text-gf-charcoal font-semibold">You have operations at scale</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2">
+                    <div class="pr-8 lg:pr-16">
+                        <p class="body-text text-lg text-gf-charcoal/35">They celebrate your signup</p>
+                    </div>
+                    <div class="pl-8 lg:pl-16 border-l border-gf-charcoal/10">
+                        <p class="body-text text-lg text-gf-charcoal font-semibold">We celebrate your month-12 retention</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="body-text text-gf-charcoal/40 mt-14 text-center" style="line-height: 1.6;">
+                We're not a dashboard you log into. We're the team behind the scenes.
+            </p>
+        </div>
+    </section>
+
+    <!-- 04 — THE MODEL -->
+    <section class="fade-section px-6 lg:px-12 py-20 lg:py-28 bg-white/40">
+        <div class="max-w-5xl mx-auto">
+            <div class="max-w-2xl">
+                <p class="section-number text-sm text-gf-charcoal/25 mb-6">04</p>
+                <h2 class="section-heading text-2xl lg:text-3xl text-gf-charcoal mb-4" style="line-height: 1.15;">
+                    Most partnerships get more<br>expensive as you succeed.<br>
+                    <span class="text-gf-charcoal/30">Ours gets cheaper.</span>
+                </h2>
+                <p class="body-text text-lg text-gf-charcoal/60 mt-8" style="line-height: 1.7;">
+                    We make money when you make money.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05 — CTA -->
+    <section id="apply" class="fade-section px-6 lg:px-12 py-24 lg:py-36">
+        <div class="max-w-5xl mx-auto text-center">
+            <p class="section-number text-sm text-gf-charcoal/25 mb-6">05</p>
+            <h2 class="section-heading text-3xl lg:text-4xl text-gf-charcoal mb-6" style="line-height: 1.1;">
+                You build the audience.<br>
+                <span class="text-gf-charcoal/30">Let us build the business.</span>
+            </h2>
+            <p class="body-text text-lg text-gf-charcoal/50 max-w-lg mx-auto mb-10" style="line-height: 1.7;">
+                We partner with fitness influencers who are ready to turn their audience into something real.
+            </p>
+            <a href="mailto:partner@gymfluence.com" class="cta-btn">
+                Apply to partner
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 lg:px-12 border-t border-gf-charcoal/5">
+        <div class="max-w-5xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-4">
+            <span class="font-mono font-bold text-sm text-gf-charcoal/30">Gymfluence</span>
+            <p class="body-text text-sm text-gf-charcoal/30">© 2026 Gymfluence. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
