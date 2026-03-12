@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<!-- FINAL VERSION: Dieter Rams Synthesis - "Less, but better" -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hermes - An AI assistant that actually does things</title>
+    <meta name="description" content="No signup. No app. Just text Hermes on Telegram and watch it handle your tasks.">
+    
+    <meta property="og:title" content="An AI assistant that actually does things">
+    <meta property="og:description" content="No signup. No app. Just text Hermes on Telegram and watch it handle your tasks.">
+    <meta property="og:type" content="website">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" href="favicon.ico">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Kantumruy:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'roboto-mono': ['"Roboto Mono"', 'monospace'],
+                        'kantumruy': ['Kantumruy', 'sans-serif'],
+                    },
+                    colors: {
+                        'hermes': {
+                            'bg': '#F5F5F0',
+                            'charcoal': '#17071E',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .hero-text {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 500;
+            font-size: 60px;
+            line-height: 1;
+            letter-spacing: -0.05em;
+        }
+        .subheading-text {
+            font-family: 'Kantumruy', sans-serif;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 30px;
+            letter-spacing: -0.05em;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            user-select: none;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .typewriter-cursor {
+            animation: blink 1s infinite;
+            margin-left: 2px;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        @media (max-width: 1024px) {
+            .hero-text { font-size: 48px; }
+        }
+        @media (max-width: 768px) {
+            .hero-text { font-size: 32px; line-height: 32px; }
+            .subheading-text { font-size: 18px; line-height: 22px; }
+        }
+        @media (max-width: 480px) {
+            .hero-text { font-size: 32px; line-height: 32px; }
+            .subheading-text { font-size: 16px; line-height: 20px; }
+        }
+    </style>
+</head>
+<body class="bg-[#F8F7F4] text-hermes-charcoal min-h-screen overflow-x-hidden">
+    
+    <!-- Navigation - Desktop only -->
+    <nav class="hidden lg:block absolute top-0 left-0 px-10 py-10 z-10">
+        <a href="/" class="inline-block">
+            <img src="hfm-logo.svg" alt="Hermes" class="h-8 w-auto">
+        </a>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="lg:min-h-screen px-6 lg:px-10">
+        <div class="lg:min-h-screen lg:h-screen grid grid-cols-12 gap-0 lg:gap-5 items-start lg:items-center content-start lg:content-center pt-0">
+            
+            <!-- Mobile Logo (centered) -->
+            <div class="lg:hidden col-span-12 flex justify-center pt-6 mb-2">
+                <a href="/"><img src="hfm-logo.svg" alt="Hermes" class="h-8 w-auto"></a>
+            </div>
+            
+            <!-- Left: Text Content - Desktop -->
+            <div class="hidden lg:flex col-span-6 flex-col items-center justify-center text-center py-0 px-0">
+                <h1 class="hero-text text-hermes-charcoal mb-14">
+                    An AI assistant<br>
+                    that actually<br>
+                    does things.
+                </h1>
+                <p class="subheading-text text-hermes-charcoal/80 mb-14 min-h-[30px]">
+                    <span id="typewriter"></span><span class="typewriter-cursor">|</span>
+                </p>
+                <a href="https://t.me/hermesformasses_bot?start=final" class="btn rounded-full px-20 font-bold text-xl bg-black hover:bg-gray-900 text-white border-none hover:-translate-y-0.5 transition-transform" style="font-family: 'Kantumruy', sans-serif; line-height: 30px; letter-spacing: -0.05em;">Start Free on Telegram<svg class="inline-block w-5 h-5 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                <p class="font-kantumruy text-sm text-hermes-charcoal/50 mt-4">No signup. No app. Just text.</p>
+            </div>
+            
+            <!-- Right: Video - Desktop -->
+            <div class="hidden lg:flex col-start-7 col-end-12 items-center justify-start h-full py-16">
+                <video id="hero-video-desktop" autoplay loop muted playsinline preload="metadata" poster="hermes_hero_poster.webp" class="h-full max-h-[75vh] w-auto object-cover rounded-[50px]">
+                    <source src="hermes_hero_optimized.mp4" type="video/mp4">
+                </video>
+            </div>
+            
+            <!-- Mobile: Headline -->
+            <div class="lg:hidden col-span-12 text-center px-4 mb-8">
+                <h1 class="hero-text text-hermes-charcoal" style="margin: 0; padding: 0;">An AI assistant<br>that actually<br>does things.</h1>
+            </div>
+            
+            <!-- Mobile: CTA Button -->
+            <div class="lg:hidden col-span-12 flex flex-col items-center mb-6 px-4">
+                <a href="https://t.me/hermesformasses_bot?start=final" class="btn w-full max-w-sm rounded-full font-bold text-xl bg-black hover:bg-gray-900 text-white border-none" style="font-family: 'Kantumruy', sans-serif; line-height: 30px; letter-spacing: -0.05em;">Start Free on Telegram<svg class="inline-block w-5 h-5 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                <p class="font-kantumruy text-sm text-hermes-charcoal/50 mt-3">No signup. No app. Just text.</p>
+            </div>
+            
+            <!-- Mobile: Video with typewriter overlay -->
+            <div class="lg:hidden col-span-12 flex justify-center px-4 mb-0">
+                <div class="relative w-full max-w-sm">
+                    <video autoplay loop muted playsinline preload="metadata" poster="hermes_hero_mobile_poster.webp" class="w-full object-cover rounded-[40px]">
+                        <source src="hermes_hero_mobile_optimized.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="bg-white/70 backdrop-blur-md rounded-full px-6 py-3 shadow-lg">
+                            <p class="subheading-text text-hermes-charcoal whitespace-nowrap">
+                                <span id="typewriter-mobile"></span><span class="typewriter-cursor">|</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- The Difference -->
+    <section class="py-16 lg:py-20 px-6 lg:px-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="font-roboto-mono font-medium text-2xl lg:text-4xl text-hermes-charcoal mb-12 lg:mb-16" style="letter-spacing: -0.05em;">
+                ChatGPT tells you how.<br>Hermes gets it done.
+            </h2>
+            
+            <!-- Clean comparison table -->
+            <div class="max-w-2xl mx-auto">
+                <div class="grid grid-cols-2 gap-4 lg:gap-6">
+                    <div class="text-left">
+                        <p class="font-kantumruy font-bold text-hermes-charcoal/40 text-sm uppercase tracking-wide mb-4">Other AI</p>
+                        <div class="space-y-4">
+                            <p class="font-kantumruy text-hermes-charcoal/60">Gives you instructions</p>
+                            <p class="font-kantumruy text-hermes-charcoal/60">You still have to do it</p>
+                            <p class="font-kantumruy text-hermes-charcoal/60">Forgets everything next chat</p>
+                        </div>
+                    </div>
+                    <div class="text-left border-l border-hermes-charcoal/10 pl-4 lg:pl-6">
+                        <p class="font-kantumruy font-bold text-hermes-charcoal text-sm uppercase tracking-wide mb-4">Hermes</p>
+                        <div class="space-y-4">
+                            <p class="font-kantumruy text-hermes-charcoal font-medium">Does the task</p>
+                            <p class="font-kantumruy text-hermes-charcoal font-medium">Does it for you</p>
+                            <p class="font-kantumruy text-hermes-charcoal font-medium">Remembers everything</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Integrations -->
+    <section class="py-12 lg:py-16 px-6 lg:px-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="flex flex-wrap items-center justify-center gap-8 lg:gap-12">
+                <!-- Chrome -->
+                <div class="flex flex-col items-center gap-3 opacity-70 hover:opacity-100 transition-opacity">
+                    <img src="chrome-icon.svg" alt="Chrome" class="w-12 h-12" loading="lazy">
+                </div>
+                <!-- Gmail -->
+                <div class="flex flex-col items-center gap-3 opacity-70 hover:opacity-100 transition-opacity">
+                    <img src="gmail-icon.svg" alt="Gmail" class="w-12 h-12" loading="lazy">
+                </div>
+                <!-- Calendar -->
+                <div class="flex flex-col items-center gap-3 opacity-70 hover:opacity-100 transition-opacity">
+                    <img src="calendar-icon.svg" alt="Calendar" class="w-12 h-12" loading="lazy">
+                </div>
+                <!-- Google Sheets -->
+                <div class="flex flex-col items-center gap-3 opacity-70 hover:opacity-100 transition-opacity">
+                    <img src="sheets-icon.svg" alt="Google Sheets" class="w-12 h-12" loading="lazy">
+                </div>
+                <!-- Notion -->
+                <div class="flex flex-col items-center gap-3 opacity-70 hover:opacity-100 transition-opacity">
+                    <img src="notion-icon.svg" alt="Notion" class="w-12 h-12" loading="lazy">
+                </div>
+                <!-- Obsidian -->
+                <div class="flex flex-col items-center gap-3 opacity-70 hover:opacity-100 transition-opacity">
+                    <img src="obsidian-icon.svg" alt="Obsidian" class="w-12 h-12" loading="lazy">
+                </div>
+                <!-- GitHub -->
+                <div class="flex flex-col items-center gap-3 opacity-70 hover:opacity-100 transition-opacity">
+                    <img src="github-icon.svg" alt="GitHub" class="w-12 h-12" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works -->
+    <section class="py-16 lg:py-20 px-6 lg:px-10 bg-white/50">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="font-roboto-mono font-medium text-2xl lg:text-4xl text-hermes-charcoal mb-12 lg:mb-16" style="letter-spacing: -0.05em;">
+                Ask. Approve. Done.
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+                <div class="text-center">
+                    <div class="font-roboto-mono text-5xl lg:text-6xl text-hermes-charcoal/20 mb-4">1</div>
+                    <h3 class="font-kantumruy font-bold text-lg lg:text-xl text-hermes-charcoal mb-2">Text Hermes</h3>
+                    <p class="font-kantumruy text-hermes-charcoal/70">"Book dinner at 8pm tomorrow"</p>
+                </div>
+                <div class="text-center">
+                    <div class="font-roboto-mono text-5xl lg:text-6xl text-hermes-charcoal/20 mb-4">2</div>
+                    <h3 class="font-kantumruy font-bold text-lg lg:text-xl text-hermes-charcoal mb-2">Approve the plan</h3>
+                    <p class="font-kantumruy text-hermes-charcoal/70">Hermes shows options, you pick one</p>
+                </div>
+                <div class="text-center">
+                    <div class="font-roboto-mono text-5xl lg:text-6xl text-hermes-charcoal/20 mb-4">3</div>
+                    <h3 class="font-kantumruy font-bold text-lg lg:text-xl text-hermes-charcoal mb-2">It's done</h3>
+                    <p class="font-kantumruy text-hermes-charcoal/70">Confirmation in your chat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing -->
+    <section class="py-16 lg:py-20 px-6 lg:px-10">
+        <div class="max-w-sm mx-auto text-center">
+            <h2 class="font-roboto-mono font-medium text-2xl lg:text-4xl text-hermes-charcoal mb-6 lg:mb-8" style="letter-spacing: -0.05em;">
+                Life's too short for admin work.
+            </h2>
+            <p class="font-kantumruy text-lg lg:text-xl text-hermes-charcoal/70 mb-10 lg:mb-12">
+                Start with free credits. Top up anytime in Telegram.<br>
+                No subscription. No commitment.
+            </p>
+            <a href="https://t.me/hermesformasses_bot?start=final" class="btn w-full rounded-full font-bold text-lg lg:text-xl bg-black hover:bg-gray-900 text-white border-none hover:-translate-y-0.5 transition-transform" style="font-family: 'Kantumruy', sans-serif; line-height: 30px; letter-spacing: -0.05em;">
+                Start Free on Telegram<svg class="inline-block w-5 h-5 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-8 px-6 lg:px-10 border-t border-hermes-charcoal/10">
+        <div class="max-w-4xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-4">
+            <img src="hfm-logo.svg" alt="Hermes" class="h-5 w-auto opacity-50">
+            <p class="font-kantumruy text-sm text-hermes-charcoal/50">© 2026 Redi Tech OÜ. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        const phrases = [
+            "Book me a table at Nopa for 2 tonight",
+            "Build me a website",
+            "Apply to jobs while I sleep",
+            "Reschedule my 3pm to next week",
+            "Order flowers for Mom's birthday"
+        ];
+        const typewriter = document.getElementById('typewriter');
+        const typewriterMobile = document.getElementById('typewriter-mobile');
+        let phraseIndex = 0, charIndex = 0, isDeleting = false, typingSpeed = 80;
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            const text = isDeleting ? currentPhrase.substring(0, charIndex - 1) : currentPhrase.substring(0, charIndex + 1);
+            if (typewriter) typewriter.textContent = text;
+            if (typewriterMobile) typewriterMobile.textContent = text;
+            if (isDeleting) { charIndex--; typingSpeed = 20; } else { charIndex++; typingSpeed = 80; }
+            if (!isDeleting && charIndex === currentPhrase.length) { isDeleting = true; typingSpeed = 2000; }
+            else if (isDeleting && charIndex === 0) { isDeleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; typingSpeed = 500; }
+            setTimeout(type, typingSpeed);
+        }
+        type();
+    </script>
+</body>
+</html>
