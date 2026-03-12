@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<!-- Gymfluence — Operations Partner for Fitness Influencers | Dieter Rams: "Less, but better" -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gymfluence — You build the audience. We build the business.</title>
+    <meta name="description" content="Gymfluence is the operations partner for fitness influencers. Programs, meal plans, client success, marketing strategy, and back-office — handled.">
+    
+    <meta property="og:title" content="Gymfluence — You build the audience. We build the business.">
+    <meta property="og:description" content="The operations partner for fitness influencers. Programs, meal plans, client success, marketing — handled. You focus on content and clients.">
+    <meta property="og:type" content="website">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Kantumruy+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'mono': ['"Space Mono"', 'monospace'],
+                        'sans': ['"Kantumruy Pro"', 'sans-serif'],
+                    },
+                    colors: {
+                        'gf': {
+                            'bg': '#F5F5F0',
+                            'charcoal': '#17071E',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        
+        .hero-text {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+        }
+        .section-heading {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+        .section-number {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .body-text {
+            font-family: 'Kantumruy Pro', sans-serif;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+        .body-text-medium {
+            font-family: 'Kantumruy Pro', sans-serif;
+            font-weight: 500;
+        }
+
+        /* Fade-in on scroll */
+        .fade-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Comparison table */
+        .compare-table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .compare-table td {
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(23, 7, 30, 0.06);
+            font-family: 'Kantumruy Pro', sans-serif;
+            font-size: 16px;
+            vertical-align: top;
+        }
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+        .compare-table td:first-child {
+            color: rgba(23, 7, 30, 0.4);
+            padding-right: 32px;
+            text-decoration: line-through;
+            text-decoration-color: rgba(23, 7, 30, 0.15);
+        }
+        .compare-table td:last-child {
+            font-weight: 600;
+            color: #17071E;
+        }
+
+        /* Pricing table */
+        .pricing-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(23, 7, 30, 0.06);
+            align-items: baseline;
+        }
+        .pricing-row:last-child {
+            border-bottom: none;
+        }
+
+        /* CTA button */
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 40px;
+            border-radius: 100px;
+            font-family: 'Kantumruy Pro', sans-serif;
+            font-weight: 700;
+            font-size: 17px;
+            background: #17071E;
+            color: white;
+            transition: all 0.2s ease;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+        }
+        .cta-btn:hover {
+            background: #000;
+            transform: translateY(-2px);
+        }
+        .cta-btn svg {
+            margin-left: 10px;
+            transition: transform 0.2s ease;
+        }
+        .cta-btn:hover svg {
+            transform: translateX(3px);
+        }
+
+        @media (max-width: 768px) {
+            .hero-text { font-size: 36px !important; }
+            .pricing-row { 
+                grid-template-columns: 1fr;
+                gap: 4px;
+                padding: 16px 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#F5F5F0] text-gf-charcoal min-h-screen overflow-x-hidden">
+    
+    <!-- Navigation -->
+    <nav class="px-6 lg:px-12 py-8 flex justify-between items-center max-w-6xl mx-auto">
+        <span class="font-mono font-bold text-lg tracking-tight">Gymfluence</span>
+        <a href="#apply" class="font-sans font-medium text-sm text-gf-charcoal/50 hover:text-gf-charcoal transition-colors">Apply to partner →</a>
+    </nav>
+
+    <!-- 01 — HERO -->
+    <section class="px-6 lg:px-12 pt-12 lg:pt-24 pb-20 lg:pb-36">
+        <div class="max-w-5xl mx-auto">
+            <div class="max-w-3xl">
+                <p class="section-number text-sm text-gf-charcoal/25 mb-6">01</p>
+                <h1 class="hero-text text-gf-charcoal mb-8" style="font-size: 56px;">
+                    You build the<br>audience.<br>We build the<br>business.
+                </h1>
+                <p class="body-text text-xl text-gf-charcoal/60 mb-10 max-w-lg" style="line-height: 1.6;">
+                    Gymfluence is the operations partner for fitness influencers. Programs, meal plans, client success, marketing strategy, and back-office — handled. You focus on content and clients.
+                </p>
+                <a href="#apply" class="cta-btn">
+                    Apply to partner
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02 — THE PROBLEM -->
+    <section class="fade-section px-6 lg:px-12 py-20 lg:py-28 bg-white/40">
+        <div class="max-w-5xl mx-auto">
+            <div class="max-w-2xl">
+                <p class="section-number text-sm text-gf-charcoal/25 mb-6">02</p>
+                <h2 class="section-heading text-3xl lg:text-4xl text-gf-charcoal mb-8" style="line-height: 1.1;">
+                    A loyal audience.<br>Zero infrastructure.
+                </h2>
+                <div class="space-y-5 body-text text-lg text-gf-charcoal/60" style="line-height: 1.7;">
+                    <p>Your DMs are full of people asking for help. You just don't have a way to say yes.</p>
+                    <p>You've tried a PDF. Maybe a template. Maybe you thought about coaching but didn't know where to start — the programs, the payments, the meal plans, the client messages, the refunds, the "how do I actually do this every day."</p>
+                    <p>Some influencers try to do it alone and burn out. Some sign with a platform and still end up running operations themselves.</p>
+                    <p class="text-gf-charcoal font-medium">We took a different approach.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03 — WHAT WE DO -->
+    <section class="fade-section px-6 lg:px-12 py-20 lg:py-28">
+        <div class="max-w-5xl mx-auto">
+            <p class="section-number text-sm text-gf-charcoal/25 mb-6">03</p>
+            <h2 class="section-heading text-3xl lg:text-4xl text-gf-charcoal mb-6" style="line-height: 1.1;">
+                Everything your<br>clients need.
+            </h2>
+            <p class="section-heading text-3xl lg:text-4xl text-gf-charcoal/30 mb-16" style="line-height: 1.1;">
+                Nothing you need<br>to build.
+            </p>
+            
+            <div class="body-text text-lg text-gf-charcoal/60 max-w-2xl mb-16" style="line-height: 1.7;">
+                <p>Your clients get custom training programs — gym, home, whatever they need. Nutritionist-designed meal plans grouped by goals. A recipe library they'll actually use. Progress tracking. Real human support when they need it.</p>
+                <p class="mt-5 text-gf-charcoal font-medium">You don't build any of it. We do.</p>
+            </div>
+
+            <!-- Retention / Customer Success -->
+            <div class="bg-white/60 rounded-3xl border border-gf-charcoal/5 p-8 lg:p-12 max-w-3xl mb-8">
+                <p class="font-mono font-bold text-xs text-gf-charcoal/30 uppercase tracking-wider mb-6">Customer Success</p>
+                
+                <div class="space-y-8">
+                    <div>
+                        <p class="body-text-medium text-gf-charcoal mb-2">Structured check-ins</p>
+                        <p class="body-text text-gf-charcoal/50" style="line-height: 1.6;">Every client gets regular check-in points — not when we remember, but on a system. Progress tracked, feedback given, adjustments made. No clients falling through the cracks.</p>
+                    </div>
+                    <div>
+                        <p class="body-text-medium text-gf-charcoal mb-2">Early intervention</p>
+                        <p class="body-text text-gf-charcoal/50" style="line-height: 1.6;">When a client misses workouts, stops logging, or goes quiet — we notice. Our team reaches out before they cancel. Most platforms let churn happen. We prevent it.</p>
+                    </div>
+                    <div>
+                        <p class="body-text-medium text-gf-charcoal mb-2">Support that doesn't land on you</p>
+                        <p class="body-text text-gf-charcoal/50" style="line-height: 1.6;">Client has a billing question? Wants to pause? Unhappy with a meal plan? Our support team handles it directly. You hear about it in your report, not in your DMs at midnight.</p>
+                    </div>
+                    <div>
+                        <p class="body-text-medium text-gf-charcoal mb-2">Refunds without drama</p>
+                        <p class="body-text text-gf-charcoal/50" style="line-height: 1.6;">If a refund is warranted, it happens. Client emails in, we review it, money goes back to their bank. Clean, fast, no reputation damage to you.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="body-text text-lg text-gf-charcoal/60 max-w-2xl" style="line-height: 1.7;">
+                Retention is where coaching businesses live or die. Not in signups — in month three, month six, month twelve. We built our operation around that.
+            </p>
+        </div>
+    </section>
+
+    <!-- 04 — PLATFORM VS PARTNER -->
+    <section class="fade-section px-6 lg:px-12 py-20 lg:py-28 bg-white/40">
+        <div class="max-w-5xl mx-auto">
+            <p class="section-number text-sm text-gf-charcoal/25 mb-6">04</p>
+            <h2 class="section-heading text-3xl lg:text-4xl text-gf-charcoal mb-14" style="line-height: 1.1;">
+                Platform vs. partner.
+            </h2>
+            
+            <div class="max-w-2xl">
+                <table class="compare-table">
+                    <tr>
+                        <td>You get software</td>
+                        <td>You get a team</td>
+                    </tr>
+                    <tr>
+                        <td>You build programs</td>
+                        <td>We build programs</td>
+                    </tr>
+                    <tr>
+                        <td>You manage clients</td>
+                        <td>We manage clients</td>
+                    </tr>
+                    <tr>
+                        <td>You figure out marketing</td>
+                        <td>We bring 5 years of strategies</td>
+                    </tr>
+                    <tr>
+                        <td>You're alone at scale</td>
+                        <td>You have operations at scale</td>
+                    </tr>
+                </table>
+            </div>
+
+            <p class="body-text text-gf-charcoal/40 mt-12 max-w-md" style="line-height: 1.6;">
+                We're not a dashboard you log into.<br>We're the team behind the scenes.
+            </p>
+        </div>
+    </section>
+
+    <!-- 05 — MARKETING & GROWTH -->
+    <section class="fade-section px-6 lg:px-12 py-20 lg:py-28">
+        <div class="max-w-5xl mx-auto">
+            <p class="section-number text-sm text-gf-charcoal/25 mb-6">05</p>
+            <h2 class="section-heading text-2xl lg:text-3xl text-gf-charcoal mb-8" style="line-height: 1.15;">
+                We've spent 5 years turning<br>followers into paying clients.<br>
+                <span class="text-gf-charcoal/30">Now we'll do it for you.</span>
+            </h2>
+            
+            <div class="max-w-2xl">
+                <p class="body-text text-lg text-gf-charcoal/60 mb-10" style="line-height: 1.7;">
+                    We'll build your funnel. Set up your Manychat. Plan your content calendar. Design your lead magnets. Script your live streams. Run your giveaways. If you want us to manage your paid ads, we can do that too.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-4 mb-12">
+                    <div class="flex items-start gap-3 py-2">
+                        <span class="text-gf-charcoal/20 mt-0.5">—</span>
+                        <span class="body-text text-gf-charcoal/70">Follower-to-client conversion</span>
+                    </div>
+                    <div class="flex items-start gap-3 py-2">
+                        <span class="text-gf-charcoal/20 mt-0.5">—</span>
+                        <span class="body-text text-gf-charcoal/70">Manychat setup & automations</span>
+                    </div>
+                    <div class="flex items-start gap-3 py-2">
+                        <span class="text-gf-charcoal/20 mt-0.5">—</span>
+                        <span class="body-text text-gf-charcoal/70">Lead magnet design</span>
+                    </div>
+                    <div class="flex items-start gap-3 py-2">
+                        <span class="text-gf-charcoal/20 mt-0.5">—</span>
+                        <span class="body-text text-gf-charcoal/70">Content planning & schedules</span>
+                    </div>
+                    <div class="flex items-start gap-3 py-2">
+                        <span class="text-gf-charcoal/20 mt-0.5">—</span>
+                        <span class="body-text text-gf-charcoal/70">Live stream & giveaway playbooks</span>
+                    </div>
+                    <div class="flex items-start gap-3 py-2">
+                        <span class="text-gf-charcoal/20 mt-0.5">—</span>
+                        <span class="body-text text-gf-charcoal/70">Paid ads strategy & management</span>
+                    </div>
+                </div>
+
+                <p class="body-text text-lg text-gf-charcoal/60" style="line-height: 1.7;">
+                    This isn't a course you watch alone at midnight. It's a team that works alongside you.
+                </p>
+
+                <div class="mt-10 pt-8 border-t border-gf-charcoal/5">
+                    <p class="body-text text-lg text-gf-charcoal" style="line-height: 1.7;">
+                        You don't need a million followers.<br>
+                        You need paying clients.<br>
+                        <span class="text-gf-charcoal/50">We know how to get them from the audience you already have.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 06 — THE MODEL -->
+    <section class="fade-section px-6 lg:px-12 py-20 lg:py-28 bg-white/40">
+        <div class="max-w-5xl mx-auto">
+            <p class="section-number text-sm text-gf-charcoal/25 mb-6">06</p>
+            <h2 class="section-heading text-3xl lg:text-4xl text-gf-charcoal mb-4" style="line-height: 1.1;">
+                Aligned incentives.
+            </h2>
+            <p class="section-heading text-3xl lg:text-4xl text-gf-charcoal/30 mb-10" style="line-height: 1.1;">
+                Lower costs as you grow.
+            </p>
+
+            <p class="body-text text-lg text-gf-charcoal/60 mb-12 max-w-lg" style="line-height: 1.7;">
+                Most partnerships get more expensive as you succeed. Ours gets cheaper.
+            </p>
+
+            <div class="max-w-lg mb-12">
+                <!-- Tier 1 -->
+                <div class="pricing-row">
+                    <div>
+                        <p class="font-mono font-bold text-sm text-gf-charcoal/30">Starting out</p>
+                    </div>
+                    <div>
+                        <p class="body-text text-gf-charcoal/50 text-sm">Up to 100K NOK/mo</p>
+                    </div>
+                    <div>
+                        <p class="font-mono font-bold text-2xl text-gf-charcoal">25%</p>
+                    </div>
+                </div>
+                <!-- Tier 2 -->
+                <div class="pricing-row">
+                    <div>
+                        <p class="font-mono font-bold text-sm text-gf-charcoal/30">Growing</p>
+                    </div>
+                    <div>
+                        <p class="body-text text-gf-charcoal/50 text-sm">100–300K NOK/mo</p>
+                    </div>
+                    <div>
+                        <p class="font-mono font-bold text-2xl text-gf-charcoal">20%</p>
+                    </div>
+                </div>
+                <!-- Tier 3 -->
+                <div class="pricing-row">
+                    <div>
+                        <p class="font-mono font-bold text-sm text-gf-charcoal/30">Scaled</p>
+                    </div>
+                    <div>
+                        <p class="body-text text-gf-charcoal/50 text-sm">300K+ NOK/mo</p>
+                    </div>
+                    <div>
+                        <p class="font-mono font-bold text-2xl text-gf-charcoal">15%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="body-text text-gf-charcoal/50 max-w-lg space-y-3" style="line-height: 1.6;">
+                <p>Taken from what reaches your bank account — after payment processing, not before.</p>
+                <p class="text-gf-charcoal font-medium">You own your client list. Always.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 07 — CTA -->
+    <section id="apply" class="fade-section px-6 lg:px-12 py-24 lg:py-36">
+        <div class="max-w-5xl mx-auto text-center">
+            <p class="section-number text-sm text-gf-charcoal/25 mb-6">07</p>
+            <h2 class="section-heading text-3xl lg:text-4xl text-gf-charcoal mb-6" style="line-height: 1.1;">
+                Your audience is ready.<br>
+                <span class="text-gf-charcoal/30">Let's build what comes next.</span>
+            </h2>
+            <p class="body-text text-lg text-gf-charcoal/50 max-w-lg mx-auto mb-10" style="line-height: 1.7;">
+                We partner with fitness influencers who have an engaged audience and want to build a real coaching business — not a side hustle. If that's you, we should talk.
+            </p>
+            <a href="mailto:partner@gymfluence.com" class="cta-btn">
+                Apply to partner
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <p class="body-text text-sm text-gf-charcoal/30 mt-4">
+                Tell us about your audience and goals. We'll tell you if we're the right fit.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 lg:px-12 border-t border-gf-charcoal/5">
+        <div class="max-w-5xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-4">
+            <span class="font-mono font-bold text-sm text-gf-charcoal/30">Gymfluence</span>
+            <p class="body-text text-sm text-gf-charcoal/30">© 2026 Gymfluence. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll fade-in
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
