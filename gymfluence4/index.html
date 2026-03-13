@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gymfluence — You build the audience. We build the business.</title>
+    <meta name="description" content="You have the followers. We turn them into a coaching business that runs without you.">
+    
+    <meta property="og:title" content="Gymfluence — You build the audience. We build the business.">
+    <meta property="og:description" content="You have the followers. We turn them into a coaching business that runs without you.">
+    <meta property="og:type" content="website">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Syne', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'gf-dark': '#0a0a0a',
+                        'gf-darker': '#050505',
+                        'gf-gray': '#171717',
+                        'gf-gray-light': '#262626',
+                        'gf-cyan': '#06b6d4',
+                        'gf-cyan-bright': '#22d3ee',
+                        'gf-purple': '#a855f7',
+                        'gf-purple-light': '#c084fc',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background: #0a0a0a;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #06b6d4 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-border {
+            position: relative;
+            background: #171717;
+        }
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(135deg, #06b6d4, #a855f7);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .hero-video-overlay {
+            background: linear-gradient(180deg, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.8) 100%);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(6, 182, 212, 0.1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 20px 60px rgba(6, 182, 212, 0.15);
+        }
+
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(6, 182, 212, 0.4);
+        }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .stats-number {
+            font-size: clamp(4rem, 15vw, 12rem);
+            line-height: 0.9;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(10, 10, 10, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .stats-number {
+                font-size: 8rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gf-dark text-white antialiased">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-blur">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 py-6 flex justify-between items-center">
+            <a href="/" class="inline-block">
+                <img src="/gymfluence-logo.svg" alt="Gymfluence" class="h-8 w-auto brightness-0 invert">
+            </a>
+            <a href="#apply" class="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white/5 hover:bg-white/10 text-sm font-semibold font-body transition-all">
+                Partner with us
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Video Background -->
+        <div class="absolute inset-0 w-full h-full">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-30">
+                <source src="/gymfluence-hero.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 hero-video-overlay"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-32 text-center">
+            <h1 class="font-display font-bold text-6xl md:text-7xl lg:text-8xl xl:text-9xl mb-8 leading-[0.95]">
+                You build the<br>
+                <span class="gradient-text">audience.</span><br>
+                We build the<br>
+                <span class="gradient-text">business.</span>
+            </h1>
+            <p class="font-body text-xl md:text-2xl text-white/60 mb-4 max-w-2xl mx-auto">
+                You have the followers. We turn them into a coaching business that runs without you.
+            </p>
+            <p class="font-body text-sm md:text-base text-white/30 mb-12 max-w-xl mx-auto">
+                2.5M NOK in annual revenue. That's what's possible when someone else runs your operations.
+            </p>
+            <a href="#apply" class="cta-button inline-flex items-center gap-3 px-10 py-5 rounded-full font-body font-bold text-lg text-white">
+                Apply to partner
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 float">
+            <span class="text-xs text-white/30 uppercase tracking-wider font-body font-semibold">Scroll</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/30"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+        </div>
+    </section>
+
+    <!-- THE PROBLEM -->
+    <section class="fade-in py-24 lg:py-32 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="max-w-4xl">
+                <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-8 leading-tight">
+                    Your DMs are full of people<br>asking for help.
+                </h2>
+                <p class="font-body text-xl md:text-2xl text-white/50 leading-relaxed">
+                    You just don't have the programs, the systems, or the team to say yes. Not yet.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- THEM VS US -->
+    <section class="fade-in py-24 lg:py-32 px-6 lg:px-12 bg-gf-gray">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-20 text-center">
+                Them <span class="text-white/20">vs</span> us.
+            </h2>
+            
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 lg:gap-12">
+                <!-- Left: Others -->
+                <div class="space-y-6">
+                    <p class="font-body text-xs text-white/30 uppercase tracking-wider font-semibold mb-8">The other guys</p>
+                    <div class="space-y-5">
+                        <p class="font-body text-lg text-white/30">You get software</p>
+                        <p class="font-body text-lg text-white/30">You build programs</p>
+                        <p class="font-body text-lg text-white/30">You manage clients</p>
+                        <p class="font-body text-lg text-white/30">You figure out marketing</p>
+                        <p class="font-body text-lg text-white/30">You're alone at scale</p>
+                        <p class="font-body text-lg text-white/30">They celebrate your signup</p>
+                    </div>
+                </div>
+
+                <!-- Right: Gymfluence -->
+                <div class="space-y-6 md:border-l border-gf-cyan/20 md:pl-12">
+                    <p class="font-body text-xs text-gf-cyan uppercase tracking-wider font-semibold mb-8">Gymfluence</p>
+                    <div class="space-y-5">
+                        <p class="font-body text-lg text-white font-semibold">You get software and a team</p>
+                        <p class="font-body text-lg text-white font-semibold">We build programs</p>
+                        <p class="font-body text-lg text-white font-semibold">We manage clients</p>
+                        <p class="font-body text-lg text-white font-semibold">We bring 5 years of strategies</p>
+                        <p class="font-body text-lg text-white font-semibold">You have operations at scale</p>
+                        <p class="font-body text-lg text-white font-semibold">We celebrate your month-12 retention</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="font-body text-white/40 text-center mt-16 text-lg max-w-2xl mx-auto">
+                We're not a dashboard you log into. We're the team behind the scenes.
+            </p>
+        </div>
+    </section>
+
+    <!-- WHAT WE HANDLE -->
+    <section class="fade-in py-24 lg:py-32 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-8 max-w-4xl leading-tight">
+                You don't build programs.<br>
+                <span class="text-white/30">You don't manage clients.<br>
+                You don't handle support.</span>
+            </h2>
+            
+            <p class="font-body text-xl md:text-2xl text-white font-semibold max-w-3xl mb-20 leading-relaxed">
+                You do two things: create content and talk to your followers. We handle everything after someone says "I'm in."
+            </p>
+
+            <!-- Grid of services -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card-hover p-8 rounded-2xl bg-gf-gray-light">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gf-cyan to-gf-purple mb-6"></div>
+                    <h3 class="font-display font-bold text-xl mb-3">Program Development</h3>
+                    <p class="font-body text-white/50">Custom training & nutrition plans built for your audience.</p>
+                </div>
+                <div class="card-hover p-8 rounded-2xl bg-gf-gray-light">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gf-purple to-gf-cyan mb-6"></div>
+                    <h3 class="font-display font-bold text-xl mb-3">Client Management</h3>
+                    <p class="font-body text-white/50">Onboarding, check-ins, progress tracking — all handled.</p>
+                </div>
+                <div class="card-hover p-8 rounded-2xl bg-gf-gray-light">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gf-cyan to-gf-purple mb-6"></div>
+                    <h3 class="font-display font-bold text-xl mb-3">Support Team</h3>
+                    <p class="font-body text-white/50">We answer questions so you don't have to.</p>
+                </div>
+                <div class="card-hover p-8 rounded-2xl bg-gf-gray-light">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gf-purple to-gf-cyan mb-6"></div>
+                    <h3 class="font-display font-bold text-xl mb-3">Marketing & Funnels</h3>
+                    <p class="font-body text-white/50">Content strategy, lead magnets, conversion automations.</p>
+                </div>
+                <div class="card-hover p-8 rounded-2xl bg-gf-gray-light">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gf-cyan to-gf-purple mb-6"></div>
+                    <h3 class="font-display font-bold text-xl mb-3">Platform & Tech</h3>
+                    <p class="font-body text-white/50">App, payments, analytics — the full stack.</p>
+                </div>
+                <div class="card-hover p-8 rounded-2xl bg-gf-gray-light">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gf-purple to-gf-cyan mb-6"></div>
+                    <h3 class="font-display font-bold text-xl mb-3">Operations</h3>
+                    <p class="font-body text-white/50">The unsexy stuff that makes everything run smoothly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5 YEARS SECTION (GIANT NUMBER) -->
+    <section class="fade-in py-24 lg:py-32 px-6 lg:px-12 bg-gf-gray">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left: Giant 5 -->
+                <div class="text-center lg:text-left">
+                    <div class="font-display stats-number gradient-text inline-block">5</div>
+                    <p class="font-display text-2xl md:text-3xl font-semibold mt-4 text-white/80">
+                        years of turning followers<br>into paying clients
+                    </p>
+                </div>
+
+                <!-- Right: Body copy -->
+                <div class="space-y-6">
+                    <p class="font-body text-lg md:text-xl text-white/60 leading-relaxed">
+                        Most influencers post and hope. We'll give you a system — a content plan that builds demand, lead magnets that capture it, automations that convert it, and a team that adjusts when something isn't working.
+                    </p>
+                    <p class="font-body text-lg md:text-xl text-white leading-relaxed">
+                        You don't need a million followers. You need paying clients.
+                    </p>
+                    <p class="font-body text-lg md:text-xl text-white/50 leading-relaxed">
+                        We know how to get them from the audience you already have.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="fade-in py-24 lg:py-32 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-8 max-w-4xl leading-tight">
+                Most partnerships get more expensive as you succeed.
+                <span class="text-white/30"><br>Ours gets cheaper.</span>
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-6 mt-16 max-w-5xl">
+                <!-- Tier 1 -->
+                <div class="pricing-card p-8 rounded-2xl border border-gf-cyan/20">
+                    <p class="font-body text-sm text-white/50 uppercase tracking-wider mb-2">Starting out</p>
+                    <div class="font-display text-6xl font-bold gradient-text mb-4">28%</div>
+                    <p class="font-body text-white/60 mb-6">Up to 200K NOK/mo</p>
+                    <ul class="space-y-3 font-body text-sm text-white/70">
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-gf-cyan shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            Full operations
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-gf-cyan shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            Custom programs
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-gf-cyan shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            Marketing support
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tier 2 -->
+                <div class="pricing-card p-8 rounded-2xl border border-gf-purple/20">
+                    <p class="font-body text-sm text-white/50 uppercase tracking-wider mb-2">Growing</p>
+                    <div class="font-display text-6xl font-bold gradient-text mb-4">24%</div>
+                    <p class="font-body text-white/60 mb-6">200–300K NOK/mo</p>
+                    <ul class="space-y-3 font-body text-sm text-white/70">
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-gf-purple shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            Everything in Tier 1
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-gf-purple shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            Lower revenue share
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-gf-purple shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            Scaled operations
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="pricing-card p-8 rounded-2xl border border-gf-cyan/20">
+                    <p class="font-body text-sm text-white/50 uppercase tracking-wider mb-2">Scaled</p>
+                    <div class="font-display text-6xl font-bold gradient-text mb-4">20%</div>
+                    <p class="font-body text-white/60 mb-6">300K+ NOK/mo</p>
+                    <ul class="space-y-3 font-body text-sm text-white/70">
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-gf-cyan shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            Maximum efficiency
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-gf-cyan shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            Lowest rate
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-gf-cyan shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            Premium support
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-16 max-w-2xl space-y-4 font-body text-white/50">
+                <p>No upfront cost. No retainer. Taken from what reaches your bank account — after payment processing, not before.</p>
+                <p class="text-white font-semibold">You own your client list. Always.</p>
+                <p class="text-white font-semibold">We make money when you make money.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="fade-in py-24 lg:py-32 px-6 lg:px-12 bg-gf-gray">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-16">
+                Questions.
+            </h2>
+
+            <div class="max-w-3xl space-y-12">
+                <div>
+                    <h3 class="font-display font-bold text-xl md:text-2xl mb-4 text-white">
+                        How long until I see revenue?
+                    </h3>
+                    <p class="font-body text-lg text-white/60 leading-relaxed">
+                        Most coaches see their first paying clients within the first month. We move fast — your programs, meal plans, and funnel are built from day one.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-display font-bold text-xl md:text-2xl mb-4 text-white">
+                        What if I already have a coaching program?
+                    </h3>
+                    <p class="font-body text-lg text-white/60 leading-relaxed">
+                        We'll work with what you have or rebuild it properly. Either way, we take the operations off your hands so you can focus on your audience.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-display font-bold text-xl md:text-2xl mb-4 text-white">
+                        Do I need my own company?
+                    </h3>
+                    <p class="font-body text-lg text-white/60 leading-relaxed">
+                        Yes. We'll help you set it up and connect you with an accountant who handles the invoicing. It's simpler than you think.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="fade-in py-24 lg:py-32 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-16">
+                Real people. Real team.
+            </h2>
+            <div class="flex justify-center gap-8 lg:gap-12 flex-wrap">
+                <div class="text-center">
+                    <div class="w-24 h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-gf-cyan/20 to-gf-purple/20 mx-auto mb-4 border border-white/10"></div>
+                    <p class="font-body text-sm text-white/40">Team member</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-24 h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-gf-purple/20 to-gf-cyan/20 mx-auto mb-4 border border-white/10"></div>
+                    <p class="font-body text-sm text-white/40">Team member</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-24 h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-gf-cyan/20 to-gf-purple/20 mx-auto mb-4 border border-white/10"></div>
+                    <p class="font-body text-sm text-white/40">Team member</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-24 h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-gf-purple/20 to-gf-cyan/20 mx-auto mb-4 border border-white/10"></div>
+                    <p class="font-body text-sm text-white/40">Team member</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="apply" class="fade-in py-24 lg:py-40 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="font-display font-bold text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-12 leading-tight">
+                You build the<br>audience.
+                <span class="text-white/30"><br>Let us build<br>the business.</span>
+            </h2>
+            <a href="mailto:partner@gymfluence.com" class="cta-button inline-flex items-center gap-3 px-12 py-6 rounded-full font-body font-bold text-xl text-white">
+                Apply to partner
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <p class="font-body text-sm text-white/30 mt-8">
+                We take on a handful of new partners every quarter. When we're full, we're full.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 lg:px-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-6">
+            <img src="/gymfluence-logo.svg" alt="Gymfluence" class="h-6 w-auto brightness-0 invert opacity-20">
+            <p class="font-body text-sm text-white/20">© 2026 Gymfluence. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
