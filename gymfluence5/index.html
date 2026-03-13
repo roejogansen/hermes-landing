@@ -199,10 +199,52 @@
     <section class="fade-in py-24 lg:py-32 px-6 lg:px-12 bg-white/40">
         <div class="max-w-7xl mx-auto">
             <h2 class="font-display font-black mb-8 leading-tight text-hermes-charcoal" style="font-size: clamp(2.25rem, 4.5vw, 3.75rem);">
-                You don't build programs.<br>
-                <span class="text-hermes-charcoal/30">You don't manage clients.<br>
-                You don't handle support.</span>
+                You don't <span id="dont-typewriter"></span><span class="typewriter-cursor" style="animation: blink 1s infinite;">|</span>
             </h2>
+            <style>
+                @keyframes blink { 0%,50%{opacity:1} 51%,100%{opacity:0} }
+            </style>
+            <script>
+            (function() {
+                const phrases = ['build programs.', 'manage clients.', 'handle support.'];
+                const el = document.getElementById('dont-typewriter');
+                let phraseIdx = 0, charIdx = 0, deleting = false;
+                let started = false;
+
+                function tick() {
+                    const phrase = phrases[phraseIdx];
+                    if (!deleting) {
+                        charIdx++;
+                        el.textContent = phrase.substring(0, charIdx);
+                        if (charIdx === phrase.length) {
+                            setTimeout(() => { deleting = true; tick(); }, 2000);
+                            return;
+                        }
+                        setTimeout(tick, 80);
+                    } else {
+                        charIdx--;
+                        el.textContent = phrase.substring(0, charIdx);
+                        if (charIdx === 0) {
+                            deleting = false;
+                            phraseIdx = (phraseIdx + 1) % phrases.length;
+                            setTimeout(tick, 400);
+                            return;
+                        }
+                        setTimeout(tick, 40);
+                    }
+                }
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !started) {
+                            started = true;
+                            tick();
+                        }
+                    });
+                }, { threshold: 0.3 });
+                observer.observe(el.parentElement);
+            })();
+            </script>
             
             <p class="font-body text-xl md:text-2xl text-hermes-charcoal font-semibold max-w-3xl mb-20 leading-relaxed">
                 You do two things: create content and talk to your followers. We handle everything after someone says "I'm in."
