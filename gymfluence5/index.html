@@ -19,7 +19,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700;900&family=Kantumruy:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Kantumruy:wght@400;700&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -40,7 +40,7 @@
     
     <style>
         body {
-            background: #F5F5F0;
+            background: #F8F7F4;
             font-family: 'Kantumruy', sans-serif;
             color: #17071E;
         }
@@ -74,6 +74,7 @@
         .cta-button {
             background: #17071E;
             color: white;
+            letter-spacing: -0.05em;
             transition: all 0.25s ease;
         }
         .cta-button:hover {
@@ -83,7 +84,7 @@
         .stats-number {
             font-size: clamp(10rem, 20vw, 18rem);
             line-height: 0.85;
-            font-weight: 900;
+            font-weight: 500;
             letter-spacing: -0.05em;
         }
 
@@ -113,7 +114,7 @@
             <a href="/" class="inline-block">
                 <img src="/gymfluence-logo.svg" alt="Gymfluence" class="h-8 w-auto">
             </a>
-            <a href="#apply" class="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-hermes-charcoal/10 hover:bg-hermes-charcoal/5 text-sm font-semibold font-display transition-all">
+            <a href="#apply" class="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-hermes-charcoal/10 hover:bg-hermes-charcoal/5 text-sm font-medium font-display transition-all">
                 Partner with us
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
@@ -132,7 +133,7 @@
 
         <!-- Hero Content -->
         <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-32 text-center">
-            <h1 class="font-display font-black text-6xl md:text-7xl lg:text-8xl xl:text-9xl mb-8 leading-[0.95] text-hermes-charcoal">
+            <h1 class="font-display font-medium text-6xl md:text-7xl lg:text-8xl xl:text-9xl mb-8 leading-[0.95] text-hermes-charcoal">
                 You build the<br>
                 audience.<br>
                 We build the<br>
@@ -184,7 +185,7 @@
     <!-- PRICING -->
     <section class="fade-in py-24 lg:py-32 px-6 lg:px-12 bg-white/40">
         <div class="max-w-7xl mx-auto">
-            <h2 class="font-display font-black text-4xl md:text-5xl lg:text-6xl mb-8 max-w-4xl leading-tight text-hermes-charcoal">
+            <h2 class="font-display font-medium text-4xl md:text-5xl lg:text-6xl mb-8 max-w-4xl leading-tight text-hermes-charcoal">
                 Most partnerships get more expensive as you succeed.
                 <span class="text-hermes-charcoal/30"><br>Ours gets cheaper.</span>
             </h2>
@@ -196,22 +197,22 @@
 
                 <div class="flex items-baseline gap-6 lg:gap-10 mb-4">
                     <div>
-                        <div class="font-display text-5xl lg:text-6xl font-black text-hermes-charcoal">28%</div>
+                        <div class="font-display text-5xl lg:text-6xl font-medium text-hermes-charcoal">28%</div>
                     </div>
                     <span class="font-display text-2xl text-hermes-charcoal/20">→</span>
                     <div>
-                        <div class="font-display text-5xl lg:text-6xl font-black text-hermes-charcoal/50">24%</div>
+                        <div class="font-display text-5xl lg:text-6xl font-medium text-hermes-charcoal/50">24%</div>
                     </div>
                     <span class="font-display text-2xl text-hermes-charcoal/20">→</span>
                     <div>
-                        <div class="font-display text-5xl lg:text-6xl font-black text-hermes-charcoal/30">20%</div>
+                        <div class="font-display text-5xl lg:text-6xl font-medium text-hermes-charcoal/30">20%</div>
                     </div>
                 </div>
 
                 <div class="mt-12 space-y-3 font-body text-hermes-charcoal/50" style="line-height: 1.6;">
                     <p>No upfront cost. No retainer. Taken from what reaches the bank account — after payment processing, not before.</p>
-                    <p class="text-hermes-charcoal font-semibold">You own your client list. Always.</p>
-                    <p class="text-hermes-charcoal font-semibold">We make money when you make money.</p>
+                    <p class="text-hermes-charcoal font-bold">You own your client list. Always.</p>
+                    <p class="text-hermes-charcoal font-bold">We make money when you make money.</p>
                 </div>
             </div>
         </div>
@@ -220,7 +221,7 @@
     <!-- WHAT WE HANDLE -->
     <section class="fade-in py-24 lg:py-32 px-6 lg:px-12 bg-white/40">
         <div class="max-w-7xl mx-auto">
-            <h2 class="font-display font-black mb-8 leading-tight text-hermes-charcoal" style="font-size: clamp(2.25rem, 4.5vw, 3.75rem);">
+            <h2 class="font-display font-medium mb-8 leading-tight text-hermes-charcoal" style="font-size: clamp(2.25rem, 4.5vw, 3.75rem);">
                 <span class="text-hermes-charcoal/30">You don't have to</span> <span id="dont-typewriter"></span><span class="typewriter-cursor" style="animation: blink 1s infinite;">|</span>
             </h2>
             <style>
@@ -268,7 +269,7 @@
             })();
             </script>
             
-            <p class="font-body text-xl md:text-2xl text-hermes-charcoal font-semibold max-w-3xl mb-20 leading-relaxed">
+            <p class="font-body text-xl md:text-2xl text-hermes-charcoal font-bold max-w-3xl mb-20 leading-relaxed">
                 You do two things: create content and talk to your followers. We handle everything after someone says "I'm in."
             </p>
 
@@ -276,32 +277,32 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="card-hover p-8 rounded-2xl bg-white border border-hermes-charcoal/10">
                     <div class="w-12 h-12 rounded-full bg-hermes-charcoal/5 mb-6"></div>
-                    <h3 class="font-display font-bold text-xl mb-3 text-hermes-charcoal">Program Development</h3>
+                    <h3 class="font-display font-medium text-xl mb-3 text-hermes-charcoal">Program Development</h3>
                     <p class="font-body text-hermes-charcoal/50">Custom training & nutrition plans built for your audience.</p>
                 </div>
                 <div class="card-hover p-8 rounded-2xl bg-white border border-hermes-charcoal/10">
                     <div class="w-12 h-12 rounded-full bg-hermes-charcoal/5 mb-6"></div>
-                    <h3 class="font-display font-bold text-xl mb-3 text-hermes-charcoal">Client Management</h3>
+                    <h3 class="font-display font-medium text-xl mb-3 text-hermes-charcoal">Client Management</h3>
                     <p class="font-body text-hermes-charcoal/50">Onboarding, check-ins, progress tracking — all handled.</p>
                 </div>
                 <div class="card-hover p-8 rounded-2xl bg-white border border-hermes-charcoal/10">
                     <div class="w-12 h-12 rounded-full bg-hermes-charcoal/5 mb-6"></div>
-                    <h3 class="font-display font-bold text-xl mb-3 text-hermes-charcoal">Support Team</h3>
+                    <h3 class="font-display font-medium text-xl mb-3 text-hermes-charcoal">Support Team</h3>
                     <p class="font-body text-hermes-charcoal/50">We answer questions so you don't have to.</p>
                 </div>
                 <div class="card-hover p-8 rounded-2xl bg-white border border-hermes-charcoal/10">
                     <div class="w-12 h-12 rounded-full bg-hermes-charcoal/5 mb-6"></div>
-                    <h3 class="font-display font-bold text-xl mb-3 text-hermes-charcoal">Marketing & Funnels</h3>
+                    <h3 class="font-display font-medium text-xl mb-3 text-hermes-charcoal">Marketing & Funnels</h3>
                     <p class="font-body text-hermes-charcoal/50">Content strategy, lead magnets, conversion automations.</p>
                 </div>
                 <div class="card-hover p-8 rounded-2xl bg-white border border-hermes-charcoal/10">
                     <div class="w-12 h-12 rounded-full bg-hermes-charcoal/5 mb-6"></div>
-                    <h3 class="font-display font-bold text-xl mb-3 text-hermes-charcoal">Platform & Tech</h3>
+                    <h3 class="font-display font-medium text-xl mb-3 text-hermes-charcoal">Platform & Tech</h3>
                     <p class="font-body text-hermes-charcoal/50">App, payments, analytics — the full stack.</p>
                 </div>
                 <div class="card-hover p-8 rounded-2xl bg-white border border-hermes-charcoal/10">
                     <div class="w-12 h-12 rounded-full bg-hermes-charcoal/5 mb-6"></div>
-                    <h3 class="font-display font-bold text-xl mb-3 text-hermes-charcoal">Operations</h3>
+                    <h3 class="font-display font-medium text-xl mb-3 text-hermes-charcoal">Operations</h3>
                     <p class="font-body text-hermes-charcoal/50">The unsexy stuff that makes everything run smoothly.</p>
                 </div>
             </div>
@@ -312,7 +313,7 @@
     <section class="fade-in py-24 lg:py-32 px-6 lg:px-12 bg-white/40">
         <div class="max-w-7xl mx-auto">
             <div class="max-w-4xl">
-                <h2 class="font-display font-black text-4xl md:text-5xl lg:text-6xl mb-8 leading-tight text-hermes-charcoal">
+                <h2 class="font-display font-medium text-4xl md:text-5xl lg:text-6xl mb-8 leading-tight text-hermes-charcoal">
                     Your DMs are full of <span class="dm-counter" data-count="147">147</span> people<br>asking for help.
                 </h2>
                 <p class="font-body text-xl md:text-2xl text-hermes-charcoal/50 leading-relaxed">
@@ -329,7 +330,7 @@
                 <!-- Left: Giant 5 -->
                 <div class="text-center lg:text-left">
                     <div class="font-display stats-number text-hermes-charcoal inline-block">5</div>
-                    <p class="font-display text-2xl md:text-3xl font-bold mt-4 text-hermes-charcoal/80">
+                    <p class="font-display text-2xl md:text-3xl font-medium mt-4 text-hermes-charcoal/80">
                         years of turning followers<br>into paying clients
                     </p>
                 </div>
@@ -353,13 +354,13 @@
     <!-- FAQ -->
     <section class="fade-in py-24 lg:py-32 px-6 lg:px-12 bg-hermes-cream">
         <div class="max-w-7xl mx-auto">
-            <h2 class="font-display font-black text-4xl md:text-5xl lg:text-6xl mb-16 text-hermes-charcoal">
+            <h2 class="font-display font-medium text-4xl md:text-5xl lg:text-6xl mb-16 text-hermes-charcoal">
                 Questions.
             </h2>
 
             <div class="max-w-3xl space-y-12">
                 <div>
-                    <h3 class="font-display font-bold text-xl md:text-2xl mb-4 text-hermes-charcoal">
+                    <h3 class="font-display font-medium text-xl md:text-2xl mb-4 text-hermes-charcoal">
                         How long until I see revenue?
                     </h3>
                     <p class="font-body text-lg text-hermes-charcoal/60 leading-relaxed">
@@ -368,7 +369,7 @@
                 </div>
 
                 <div>
-                    <h3 class="font-display font-bold text-xl md:text-2xl mb-4 text-hermes-charcoal">
+                    <h3 class="font-display font-medium text-xl md:text-2xl mb-4 text-hermes-charcoal">
                         What if I already have a coaching program?
                     </h3>
                     <p class="font-body text-lg text-hermes-charcoal/60 leading-relaxed">
@@ -377,7 +378,7 @@
                 </div>
 
                 <div>
-                    <h3 class="font-display font-bold text-xl md:text-2xl mb-4 text-hermes-charcoal">
+                    <h3 class="font-display font-medium text-xl md:text-2xl mb-4 text-hermes-charcoal">
                         Do I need my own company?
                     </h3>
                     <p class="font-body text-lg text-hermes-charcoal/60 leading-relaxed">
@@ -391,7 +392,7 @@
     <!-- TEAM -->
     <section class="fade-in py-24 lg:py-32 px-6 lg:px-12 bg-white/40">
         <div class="max-w-7xl mx-auto text-center">
-            <h2 class="font-display font-black text-4xl md:text-5xl lg:text-6xl mb-16 text-hermes-charcoal">
+            <h2 class="font-display font-medium text-4xl md:text-5xl lg:text-6xl mb-16 text-hermes-charcoal">
                 Real people. Real team.
             </h2>
             <div class="flex justify-center gap-8 lg:gap-12 flex-wrap">
@@ -418,7 +419,7 @@
     <!-- CTA -->
     <section id="apply" class="fade-in py-24 lg:py-40 px-6 lg:px-12 bg-hermes-cream">
         <div class="max-w-7xl mx-auto text-center">
-            <h2 class="font-display font-black text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-12 leading-tight text-hermes-charcoal">
+            <h2 class="font-display font-medium text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-12 leading-tight text-hermes-charcoal">
                 You build the<br>audience.
                 <span class="text-hermes-charcoal/30"><br>Let us build<br>the business.</span>
             </h2>
