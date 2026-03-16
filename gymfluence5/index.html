@@ -168,7 +168,7 @@
             <!-- Right: Video - Desktop -->
             <div class="hidden lg:flex col-start-7 col-end-12 items-center justify-center h-full py-16">
                 <div class="w-full max-w-[650px] aspect-square overflow-hidden rounded-[50px]">
-                    <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                    <video autoplay loop muted playsinline poster="/gymfluence-hero-poster.jpg" class="w-full h-full object-cover">
                         <source src="/gymfluence-hero.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -188,7 +188,7 @@
             <!-- Mobile: Video -->
             <div class="lg:hidden col-span-12 flex justify-center px-4 mb-0">
                 <div class="relative w-full max-w-sm">
-                    <video autoplay loop muted playsinline class="w-full object-cover rounded-[40px]">
+                    <video autoplay loop muted playsinline poster="/gymfluence-hero-poster.jpg" class="w-full object-cover rounded-[40px]">
                         <source src="/gymfluence-hero.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -441,33 +441,36 @@
                 Questions.
             </h2>
 
-            <div class="max-w-3xl space-y-12">
-                <div>
-                    <h3 class="font-display font-medium text-xl md:text-2xl mb-4 text-hermes-charcoal">
+            <div class="max-w-3xl space-y-0">
+                <details class="group border-b border-hermes-charcoal/10" open>
+                    <summary class="flex items-center justify-between cursor-pointer py-6 font-display font-medium text-xl md:text-2xl text-hermes-charcoal list-none [&::-webkit-details-marker]:hidden">
                         How long until I see revenue?
-                    </h3>
-                    <p class="font-body text-lg text-hermes-charcoal/60 leading-relaxed">
+                        <span class="ml-4 shrink-0 text-hermes-charcoal/30 transition-transform duration-300 group-open:rotate-45 text-2xl">+</span>
+                    </summary>
+                    <p class="font-body text-lg text-hermes-charcoal/60 leading-relaxed pb-6">
                         Most coaches see their first paying clients within the first month. We move fast — your programs, meal plans, and funnel are built from day one.
                     </p>
-                </div>
+                </details>
 
-                <div>
-                    <h3 class="font-display font-medium text-xl md:text-2xl mb-4 text-hermes-charcoal">
+                <details class="group border-b border-hermes-charcoal/10">
+                    <summary class="flex items-center justify-between cursor-pointer py-6 font-display font-medium text-xl md:text-2xl text-hermes-charcoal list-none [&::-webkit-details-marker]:hidden">
                         What if I already have a coaching program?
-                    </h3>
-                    <p class="font-body text-lg text-hermes-charcoal/60 leading-relaxed">
+                        <span class="ml-4 shrink-0 text-hermes-charcoal/30 transition-transform duration-300 group-open:rotate-45 text-2xl">+</span>
+                    </summary>
+                    <p class="font-body text-lg text-hermes-charcoal/60 leading-relaxed pb-6">
                         We'll work with what you have or rebuild it properly. Either way, we take the operations off your hands so you can focus on your audience.
                     </p>
-                </div>
+                </details>
 
-                <div>
-                    <h3 class="font-display font-medium text-xl md:text-2xl mb-4 text-hermes-charcoal">
+                <details class="group border-b border-hermes-charcoal/10">
+                    <summary class="flex items-center justify-between cursor-pointer py-6 font-display font-medium text-xl md:text-2xl text-hermes-charcoal list-none [&::-webkit-details-marker]:hidden">
                         Do I need my own company?
-                    </h3>
-                    <p class="font-body text-lg text-hermes-charcoal/60 leading-relaxed">
+                        <span class="ml-4 shrink-0 text-hermes-charcoal/30 transition-transform duration-300 group-open:rotate-45 text-2xl">+</span>
+                    </summary>
+                    <p class="font-body text-lg text-hermes-charcoal/60 leading-relaxed pb-6">
                         Yes. We'll help you set it up and connect you with an accountant who handles the invoicing. It's simpler than you think.
                     </p>
-                </div>
+                </details>
             </div>
         </div>
     </section>
