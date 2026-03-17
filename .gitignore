@@ -21,6 +21,7 @@ STRIPE-FORWARDER-SETUP.md
 *.jpg
 !hfm-hermes.jpg
 !img/team/*.jpg
+!img/team/*.png
 hfm-landing-bg.png
 
 # PDFs
