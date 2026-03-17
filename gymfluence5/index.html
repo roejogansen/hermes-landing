@@ -284,20 +284,20 @@
                         charIdx++;
                         el.textContent = phrase.substring(0, charIdx);
                         if (charIdx === phrase.length) {
-                            setTimeout(() => { deleting = true; tick(); }, 2000);
+                            setTimeout(() => { deleting = true; tick(); }, 1200);
                             return;
                         }
-                        setTimeout(tick, 80);
+                        setTimeout(tick, 40);
                     } else {
                         charIdx--;
                         el.textContent = phrase.substring(0, charIdx);
                         if (charIdx === 0) {
                             deleting = false;
                             phraseIdx = (phraseIdx + 1) % phrases.length;
-                            setTimeout(tick, 400);
+                            setTimeout(tick, 200);
                             return;
                         }
-                        setTimeout(tick, 40);
+                        setTimeout(tick, 20);
                     }
                 }
 
